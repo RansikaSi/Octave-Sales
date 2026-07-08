@@ -732,9 +732,9 @@
   },
   "projects": [
     {
-      "client": "M Holdings",
-      "project": "Computer Vision &",
-      "type": "PC",
+      "client": "MAS Holdings",
+      "project": "Computer Vision & Analytics",
+      "type": "POC",
       "value": "LKR 5,000,000",
       "milestone": "POC to be completed",
       "date": "Pending",
