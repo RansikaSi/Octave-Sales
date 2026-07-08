@@ -5,22 +5,40 @@ import seedData from "@/data/data.json";
 import type { DashboardData } from "@/lib/parseExcel";
 import { buildBmDataByQuarter } from "@/lib/parseExcel";
 import {
-  renderOverview,
-  renderBusinessMetrics,
-  populateQuarterFilter,
-  renderProjectSections,
-  renderPartnerSections,
-  renderLeadGenWeekly,
-  renderPositiveInquiries,
-  setupChartToggleAndNav,
+  buildOverview,
+  buildBusinessMetrics,
+  buildProjects,
+  buildPartners,
+  buildLeadGenWeekly,
+  buildPositiveInquiries,
+  mountBusinessMetrics,
+  setupInteractions,
+  animateBars,
 } from "@/lib/renderDashboard";
 
-// Static shell ported verbatim from index.html's <div class="app"> markup —
-// same classes, structure, and inline styles. The old <input type="file">
-// Excel loader that lived in the sidebar has been removed; that flow now
-// lives entirely on /upload. All dynamic content (funnel, donut, tables,
-// KPIs) is filled in by lib/renderDashboard.ts after mount, same as the
-// original inline <script> did on page load / after an Excel re-parse.
+// Everything below is computed once, at module scope, from the statically
+// imported data.json — not inside a useEffect. That means the server-rendered
+// HTML (and the hydrated client HTML) already contains real numbers, chart
+// bars, and table rows on the very first paint. No flash from placeholder
+// "—" values to real ones. Only the Business Metrics section needs a runtime
+// re-render (the quarter filter) — see mountBusinessMetrics() in the effect
+// below. Bars are rendered at width:0 with a data-w target and grown in by
+// animateBars() post-mount instead of appearing at full size instantly.
+const dashboardData = seedData as unknown as DashboardData;
+const bmDataByQuarter = buildBmDataByQuarter(dashboardData);
+const initialQuarter = Object.keys(bmDataByQuarter)[0] || "";
+
+const overview = buildOverview(dashboardData.deals);
+const bm = initialQuarter ? buildBusinessMetrics(bmDataByQuarter, initialQuarter) : null;
+const projects = buildProjects(dashboardData.projects);
+const partners = buildPartners(dashboardData.partners);
+const leadGen = buildLeadGenWeekly(dashboardData.leadGenWeekly);
+const posInqHtml = buildPositiveInquiries(dashboardData.positiveInquiries);
+const wordmarkDateText = bm?.lastUpdated ? `Data as of ${bm.lastUpdated}` : "—";
+const quarterOptionsHtml = Object.keys(bmDataByQuarter)
+  .map((q) => `<option value="${q}">${bmDataByQuarter[q]?.displayLabel || q}</option>`)
+  .join("");
+
 const DASHBOARD_HTML = `
   <aside class="sidebar">
     <div class="brand-block">
@@ -28,23 +46,7 @@ const DASHBOARD_HTML = `
         <span class="wordmark-dot"></span>OCTAVE
       </div>
       <div class="wordmark-sub">Sales Intelligence</div>
-      <div class="wordmark-date" id="wordmarkDate">—</div>
-    </div>
-
-    <div class="theme-switch" role="group" aria-label="Color theme">
-      <button type="button" class="theme-opt" data-theme-set="light" aria-label="Use light theme">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-          <circle cx="8" cy="8" r="3"/>
-          <path d="M8 1.5v1.5M8 13v1.5M1.5 8h1.5M13 8h1.5M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/>
-        </svg>
-        <span>Light</span>
-      </button>
-      <button type="button" class="theme-opt" data-theme-set="dark" aria-label="Use dark theme">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/>
-        </svg>
-        <span>Dark</span>
-      </button>
+      <div class="wordmark-date" id="wordmarkDate">${wordmarkDateText}</div>
     </div>
 
     <div class="nav-item active" data-view="overview">
@@ -66,6 +68,22 @@ const DASHBOARD_HTML = `
     <div class="nav-item" data-view="glossary">
       <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M5 5h6M5 7.5h6M5 10h4"/></svg>
       Glossary
+    </div>
+
+    <div class="theme-switch" role="group" aria-label="Color theme">
+      <button type="button" class="theme-opt" data-theme-set="light" aria-label="Use light theme">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="8" cy="8" r="3"/>
+          <path d="M8 1.5v1.5M8 13v1.5M1.5 8h1.5M13 8h1.5M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/>
+        </svg>
+        <span>Light</span>
+      </button>
+      <button type="button" class="theme-opt" data-theme-set="dark" aria-label="Use dark theme">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/>
+        </svg>
+        <span>Dark</span>
+      </button>
     </div>
 
     <div style="padding: 0 22px 0; margin-bottom: 4px;">
@@ -153,7 +171,7 @@ const DASHBOARD_HTML = `
             <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v6M5.5 7.5l2.5-2.5 2.5 2.5"/></svg></div>
             <div class="kpi-label">Active Leads</div>
           </div>
-          <div class="kpi-value">—</div>
+          <div class="kpi-value">${overview.kpis.active}</div>
         </div>
 
         <div class="kpi">
@@ -161,7 +179,7 @@ const DASHBOARD_HTML = `
             <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="12" height="10"/><path d="M5 3V2M11 3V2M2 6h12"/></svg></div>
             <div class="kpi-label">Total Deals</div>
           </div>
-          <div class="kpi-value">—</div>
+          <div class="kpi-value">${overview.kpis.total}</div>
         </div>
 
         <div class="kpi">
@@ -169,7 +187,7 @@ const DASHBOARD_HTML = `
             <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12L6 8L9 11L14 5"/><path d="M10 5h4v4"/></svg></div>
             <div class="kpi-label"># of Deals Won</div>
           </div>
-          <div class="kpi-value">—</div>
+          <div class="kpi-value">${overview.kpis.won}</div>
         </div>
 
         <div class="kpi">
@@ -177,7 +195,7 @@ const DASHBOARD_HTML = `
             <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l10 10M13 3L3 13"/></svg></div>
             <div class="kpi-label">Closed Lost</div>
           </div>
-          <div class="kpi-value">—</div>
+          <div class="kpi-value">${overview.kpis.closedLost}</div>
         </div>
 
         <div class="kpi">
@@ -185,7 +203,7 @@ const DASHBOARD_HTML = `
             <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
             <div class="kpi-label">Win Rate</div>
           </div>
-          <div class="kpi-value">—</div>
+          <div class="kpi-value">${overview.kpis.winRate}</div>
         </div>
 
       </div>
@@ -211,7 +229,7 @@ const DASHBOARD_HTML = `
               <th class="lg-notes">Notes</th>
             </tr>
           </thead>
-          <tbody id="lgLast3Body"></tbody>
+          <tbody id="lgLast3Body">${leadGen.last3Html}</tbody>
         </table>
       </div>
 
@@ -230,7 +248,7 @@ const DASHBOARD_HTML = `
               <th class="lg-notes">Notes</th>
             </tr>
           </thead>
-          <tbody id="lgThisWeekBody"></tbody>
+          <tbody id="lgThisWeekBody">${leadGen.thisWeekHtml}</tbody>
         </table>
       </div>
 
@@ -246,7 +264,7 @@ const DASHBOARD_HTML = `
               <th class="lg-notes">Notes</th>
             </tr>
           </thead>
-          <tbody id="lgNextWeekBody"></tbody>
+          <tbody id="lgNextWeekBody">${leadGen.nextWeekHtml}</tbody>
         </table>
       </div>
 
@@ -264,12 +282,12 @@ const DASHBOARD_HTML = `
         </div>
 
         <div class="chart-panel active" data-panel="count">
-          <div class="funnel" id="funnel"></div>
+          <div class="funnel" id="funnel">${overview.funnelHtml}</div>
         </div>
 
         <div class="chart-panel" data-panel="value">
           <div style="font-size:10px;color:var(--text-mute);letter-spacing:0.04em;margin-bottom:10px;text-transform:uppercase;font-weight:700;">LKR · excl. Morphed outlier</div>
-          <div class="stage-value" id="stageValue"></div>
+          <div class="stage-value" id="stageValue">${overview.stageValueHtml}</div>
         </div>
       </div>
 
@@ -280,11 +298,11 @@ const DASHBOARD_HTML = `
         </div>
         <div class="donut-wrap">
           <svg class="donut-svg" width="230" height="230" viewBox="0 0 230 230">
-            <g id="donut" transform="translate(115 115)"></g>
+            <g id="donut" transform="translate(115 115)">${overview.donutPathsHtml}</g>
             <text x="115" y="106" text-anchor="middle" fill="currentColor" style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;">Total</text>
-            <text id="donutTotal" x="115" y="134" text-anchor="middle" fill="currentColor" style="font-family:'Century Gothic', sans-serif;font-size:34px;font-weight:700;"></text>
+            <text id="donutTotal" x="115" y="134" text-anchor="middle" fill="currentColor" style="font-family:'Century Gothic', sans-serif;font-size:34px;font-weight:700;">${overview.donutTotal}</text>
           </svg>
-          <div class="donut-legend" id="donutLegend"></div>
+          <div class="donut-legend" id="donutLegend">${overview.donutLegendHtml}</div>
         </div>
       </div>
 
@@ -297,8 +315,8 @@ const DASHBOARD_HTML = `
           <div class="card-title">Deal Stages by Source</div>
           <div class="card-badge">count · by acquisition channel</div>
         </div>
-        <div id="sourceChart" class="source-chart"></div>
-        <div id="sourceLegend" class="source-legend"></div>
+        <div id="sourceChart" class="source-chart">${overview.sourceChartHtml}</div>
+        <div id="sourceLegend" class="source-legend">${overview.sourceLegendHtml}</div>
       </div>
 
     </div>
@@ -325,7 +343,7 @@ const DASHBOARD_HTML = `
                 <th>Value (LKR)</th>
               </tr>
             </thead>
-            <tbody id="stageBreakdownBody"></tbody>
+            <tbody id="stageBreakdownBody">${overview.stageBreakdownHtml}</tbody>
           </table>
         </div>
       </div>
@@ -351,13 +369,13 @@ const DASHBOARD_HTML = `
           <h1>Business Metrics</h1>
           <div class="bm-last-updated">
             <span class="bm-last-updated-label">Last updated</span>
-            <span id="bmLastUpdated">—</span>
+            <span id="bmLastUpdated">${bm?.lastUpdated ?? "—"}</span>
           </div>
         </div>
         <div class="bm-controls">
           <div class="filter bm-quarter-filter">
             <span class="filter-label">Quarter</span>
-            <select id="quarterFilter"></select>
+            <select id="quarterFilter">${quarterOptionsHtml}</select>
           </div>
           <div class="bm-legend">
             <div class="bm-legend-row"><span class="bm-legend-swatch above"></span><span>Above target</span></div>
@@ -377,7 +395,7 @@ const DASHBOARD_HTML = `
           <h2 class="bm-section-title">Year to date</h2>
           <div class="bm-section-badge">strategic</div>
         </div>
-        <div class="bm-cards bm-ytd-cards" id="bmYtdCards"></div>
+        <div class="bm-cards bm-ytd-cards" id="bmYtdCards">${bm?.ytdCardsHtml ?? ""}</div>
       </section>
 
       <section class="bm-section">
@@ -385,15 +403,15 @@ const DASHBOARD_HTML = `
           <h2 class="bm-section-title">Business Performance</h2>
           <div class="bm-section-badge">weekly · this week vs last</div>
         </div>
-        <div class="bm-cards" id="bmBusinessCards"></div>
+        <div class="bm-cards" id="bmBusinessCards">${bm?.businessCardsHtml ?? ""}</div>
       </section>
 
       <section class="bm-section">
         <div class="bm-section-head">
           <h2 class="bm-section-title">Deals by Stage</h2>
-          <div class="bm-section-badge" id="bmStageBadge">snapshot · pipeline composition</div>
+          <div class="bm-section-badge" id="bmStageBadge">${bm?.stageBadge ?? "snapshot"}</div>
         </div>
-        <div class="bm-stage-cards" id="bmStageCards"></div>
+        <div class="bm-stage-cards" id="bmStageCards">${bm?.stageCardsHtml ?? ""}</div>
       </section>
 
       <section class="bm-section">
@@ -401,7 +419,7 @@ const DASHBOARD_HTML = `
           <h2 class="bm-section-title">Lead Generation Performance</h2>
           <div class="bm-section-badge">summed across channels</div>
         </div>
-        <div class="bm-cards" id="bmLeadCards"></div>
+        <div class="bm-cards" id="bmLeadCards">${bm?.leadCardsHtml ?? ""}</div>
 
         <div class="bm-channel-table-wrap">
           <table class="channel-table">
@@ -423,7 +441,7 @@ const DASHBOARD_HTML = `
                 <th>Reply Rate</th>
               </tr>
             </thead>
-            <tbody id="channelTableBody"></tbody>
+            <tbody id="channelTableBody">${bm?.channelTableHtml ?? ""}</tbody>
           </table>
         </div>
 
@@ -445,7 +463,7 @@ const DASHBOARD_HTML = `
                   <th>Email</th>
                 </tr>
               </thead>
-              <tbody id="posInquiryBody"></tbody>
+              <tbody id="posInquiryBody">${posInqHtml}</tbody>
             </table>
           </div>
         </div>
@@ -456,7 +474,7 @@ const DASHBOARD_HTML = `
           <h2 class="bm-section-title">Budget Utilization Illustrative</h2>
           <div class="bm-section-badge">marketing spend tracking</div>
         </div>
-        <div class="bm-simple-cards" id="bmBudgetCards"></div>
+        <div class="bm-simple-cards" id="bmBudgetCards">${bm?.budgetCardsHtml ?? ""}</div>
       </section>
 
       <section class="bm-section">
@@ -464,7 +482,7 @@ const DASHBOARD_HTML = `
           <h2 class="bm-section-title">Cost Efficiency</h2>
           <div class="bm-section-badge">derived · auto-calculated from spend</div>
         </div>
-        <div class="bm-simple-cards" id="bmCostCards"></div>
+        <div class="bm-simple-cards" id="bmCostCards">${bm?.costCardsHtml ?? ""}</div>
       </section>
 
       <div class="footer-note" style="margin-top: 24px;">
@@ -497,7 +515,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l6-2 6 2v8l-6 2-6-2V4z"/></svg></div>
               <div class="kpi-label">Active Projects</div>
             </div>
-            <div class="kpi-value" id="kpiActiveProjects">—</div>
+            <div class="kpi-value" id="kpiActiveProjects">${projects.kpiActiveProjects}</div>
             <div class="kpi-compare">across all client accounts</div>
           </div>
 
@@ -506,7 +524,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
               <div class="kpi-label">Ongoing</div>
             </div>
-            <div class="kpi-value" id="kpiOngoing">—</div>
+            <div class="kpi-value" id="kpiOngoing">${projects.kpiOngoing}</div>
             <div class="kpi-compare">projects in progress</div>
           </div>
 
@@ -515,7 +533,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
               <div class="kpi-label">To Start</div>
             </div>
-            <div class="kpi-value" id="kpiToStart">—</div>
+            <div class="kpi-value" id="kpiToStart">${projects.kpiToStart}</div>
             <div class="kpi-compare">projects pending kick-off</div>
           </div>
 
@@ -524,8 +542,8 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12L6 8L9 11L14 5"/><path d="M10 5h4v4"/></svg></div>
               <div class="kpi-label">Confirmed Value (LKR Mn)</div>
             </div>
-            <div class="kpi-value" id="kpiConfirmedValue">—</div>
-            <div class="kpi-compare" id="kpiConfirmedNote">—</div>
+            <div class="kpi-value" id="kpiConfirmedValue">${projects.kpiConfirmedValue}</div>
+            <div class="kpi-compare" id="kpiConfirmedNote">${projects.kpiConfirmedNote}</div>
           </div>
 
         </div>
@@ -534,12 +552,12 @@ const DASHBOARD_HTML = `
       <div class="card" style="padding: 0; overflow: hidden;">
         <div class="card-head" style="padding: 18px 20px 0; margin-bottom: 12px;">
           <div class="card-title">All Projects</div>
-          <div class="card-badge" id="projTotalBadge">— records · click row for detail</div>
+          <div class="card-badge" id="projTotalBadge">${projects.totalBadge}</div>
         </div>
 
         <div class="proj-section-header">
           <span class="proj-section-title">Current</span>
-          <span class="proj-section-count" id="countCurrent">—</span>
+          <span class="proj-section-count" id="countCurrent">${projects.countOngoing}</span>
         </div>
         <div class="table-wrap">
           <table class="projects-table no-top-border">
@@ -559,14 +577,14 @@ const DASHBOARD_HTML = `
                 <th>Next Steps</th>
               </tr>
             </thead>
-            <tbody id="bodyOngoing"></tbody>
+            <tbody id="bodyOngoing" style="${projects.emptyOngoing ? "display:none;" : ""}">${projects.ongoingHtml}</tbody>
           </table>
-          <div class="proj-section-empty" id="emptyOngoing" style="display:none;">No ongoing projects.</div>
+          <div class="proj-section-empty" id="emptyOngoing" style="${projects.emptyOngoing ? "" : "display:none;"}">No ongoing projects.</div>
         </div>
 
         <div class="proj-section-header">
           <span class="proj-section-title">Active</span>
-          <span class="proj-section-count" id="countToStart">—</span>
+          <span class="proj-section-count" id="countToStart">${projects.countToStart}</span>
         </div>
         <div class="table-wrap">
           <table class="projects-table no-top-border">
@@ -586,14 +604,14 @@ const DASHBOARD_HTML = `
                 <th>Next Steps</th>
               </tr>
             </thead>
-            <tbody id="bodyToStart"></tbody>
+            <tbody id="bodyToStart" style="${projects.emptyToStart ? "display:none;" : ""}">${projects.toStartHtml}</tbody>
           </table>
-          <div class="proj-section-empty" id="emptyToStart" style="display:none;">No projects to start.</div>
+          <div class="proj-section-empty" id="emptyToStart" style="${projects.emptyToStart ? "" : "display:none;"}">No projects to start.</div>
         </div>
 
         <div class="proj-section-header">
           <span class="proj-section-title">Pending</span>
-          <span class="proj-section-count" id="countTBC">—</span>
+          <span class="proj-section-count" id="countTBC">${projects.countTbc}</span>
         </div>
         <div class="table-wrap">
           <table class="projects-table no-top-border">
@@ -613,9 +631,9 @@ const DASHBOARD_HTML = `
                 <th>Next Steps</th>
               </tr>
             </thead>
-            <tbody id="bodyTBC"></tbody>
+            <tbody id="bodyTBC" style="${projects.emptyTbc ? "display:none;" : ""}">${projects.tbcHtml}</tbody>
           </table>
-          <div class="proj-section-empty" id="emptyTBC" style="display:none;">No pending projects.</div>
+          <div class="proj-section-empty" id="emptyTBC" style="${projects.emptyTbc ? "" : "display:none;"}">No pending projects.</div>
         </div>
       </div>
 
@@ -648,7 +666,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5.5" cy="6" r="2.2"/><circle cx="11" cy="6.5" r="1.8"/><path d="M2 13c0-2 1.6-3.3 3.5-3.3S9 11 9 13"/></svg></div>
               <div class="kpi-label">Total Partners</div>
             </div>
-            <div class="kpi-value" id="kpiTotalPartners">—</div>
+            <div class="kpi-value" id="kpiTotalPartners">${partners.kpiTotalPartners}</div>
             <div class="kpi-compare">across all regions</div>
           </div>
 
@@ -657,7 +675,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
               <div class="kpi-label">On Board</div>
             </div>
-            <div class="kpi-value" id="kpiPartnersActive">—</div>
+            <div class="kpi-value" id="kpiPartnersActive">${partners.kpiPartnersActive}</div>
             <div class="kpi-compare">active partners</div>
           </div>
 
@@ -666,7 +684,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
               <div class="kpi-label">Pending</div>
             </div>
-            <div class="kpi-value" id="kpiPartnersPending">—</div>
+            <div class="kpi-value" id="kpiPartnersPending">${partners.kpiPartnersPending}</div>
             <div class="kpi-compare">partners in pipeline</div>
           </div>
 
@@ -675,7 +693,7 @@ const DASHBOARD_HTML = `
               <div class="kpi-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12L6 8L9 11L14 5"/><path d="M10 5h4v4"/></svg></div>
               <div class="kpi-label">Total Value (LKR Mn)</div>
             </div>
-            <div class="kpi-value" id="kpiPartnersValue">—</div>
+            <div class="kpi-value" id="kpiPartnersValue">${partners.kpiPartnersValue}</div>
             <div class="kpi-compare" id="kpiPartnersValueNote">combined engagement value</div>
           </div>
 
@@ -685,12 +703,12 @@ const DASHBOARD_HTML = `
       <div class="card" style="padding: 0; overflow: hidden;">
         <div class="card-head" style="padding: 18px 20px 0; margin-bottom: 12px;">
           <div class="card-title">All Partners</div>
-          <div class="card-badge" id="partnerTotalBadge">— records · click row for contacts</div>
+          <div class="card-badge" id="partnerTotalBadge">${partners.totalBadge}</div>
         </div>
 
         <div class="proj-section-header">
           <span class="proj-section-title">Active</span>
-          <span class="proj-section-count" id="countPartnersActive">—</span>
+          <span class="proj-section-count" id="countPartnersActive">${partners.countActive}</span>
         </div>
         <div class="table-wrap">
           <table class="projects-table partners-table no-top-border">
@@ -716,14 +734,14 @@ const DASHBOARD_HTML = `
                 <th>Total</th>
               </tr>
             </thead>
-            <tbody id="bodyPartnersActive"></tbody>
+            <tbody id="bodyPartnersActive" style="${partners.emptyActive ? "display:none;" : ""}">${partners.activeHtml}</tbody>
           </table>
-          <div class="proj-section-empty" id="emptyPartnersActive" style="display:none;">No active partners.</div>
+          <div class="proj-section-empty" id="emptyPartnersActive" style="${partners.emptyActive ? "" : "display:none;"}">No active partners.</div>
         </div>
 
         <div class="proj-section-header">
           <span class="proj-section-title">Pending</span>
-          <span class="proj-section-count" id="countPartnersPending">—</span>
+          <span class="proj-section-count" id="countPartnersPending">${partners.countPending}</span>
         </div>
         <div class="table-wrap">
           <table class="projects-table partners-table no-top-border">
@@ -749,9 +767,9 @@ const DASHBOARD_HTML = `
                 <th>Total</th>
               </tr>
             </thead>
-            <tbody id="bodyPartnersPending"></tbody>
+            <tbody id="bodyPartnersPending" style="${partners.emptyPending ? "display:none;" : ""}">${partners.pendingHtml}</tbody>
           </table>
-          <div class="proj-section-empty" id="emptyPartnersPending" style="display:none;">No pending partners.</div>
+          <div class="proj-section-empty" id="emptyPartnersPending" style="${partners.emptyPending ? "" : "display:none;"}">No pending partners.</div>
         </div>
       </div>
 
@@ -1001,36 +1019,20 @@ const DASHBOARD_HTML = `
 
 export default function DashboardPage() {
   useEffect(() => {
-    const dashboardData = seedData as unknown as DashboardData;
-    const bmDataByQuarter = buildBmDataByQuarter(dashboardData);
-    let activeQuarter = Object.keys(bmDataByQuarter)[0] || "";
-
-    const wordmarkDateEl = document.getElementById("wordmarkDate");
-    if (wordmarkDateEl) {
-      const lastUpdated = activeQuarter ? bmDataByQuarter[activeQuarter]?.lastUpdated : null;
-      wordmarkDateEl.textContent = lastUpdated ? `Data as of ${lastUpdated}` : "—";
-    }
-
-    renderOverview(dashboardData.deals);
-    populateQuarterFilter(bmDataByQuarter, activeQuarter);
-    if (activeQuarter) renderBusinessMetrics(bmDataByQuarter, activeQuarter);
-    renderProjectSections(dashboardData.projects);
-    renderPartnerSections(dashboardData.partners);
-    renderLeadGenWeekly(dashboardData.leadGenWeekly);
-    renderPositiveInquiries(dashboardData.positiveInquiries);
+    setupInteractions();
+    animateBars();
 
     const quarterFilterEl = document.getElementById("quarterFilter");
+    const wordmarkDateEl = document.getElementById("wordmarkDate");
     const onQuarterChange = (e: Event) => {
-      activeQuarter = (e.target as HTMLSelectElement).value;
-      renderBusinessMetrics(bmDataByQuarter, activeQuarter);
+      const q = (e.target as HTMLSelectElement).value;
+      mountBusinessMetrics(bmDataByQuarter, q);
       if (wordmarkDateEl) {
-        const lastUpdated = bmDataByQuarter[activeQuarter]?.lastUpdated;
+        const lastUpdated = bmDataByQuarter[q]?.lastUpdated;
         wordmarkDateEl.textContent = lastUpdated ? `Data as of ${lastUpdated}` : "—";
       }
     };
     quarterFilterEl?.addEventListener("change", onQuarterChange);
-
-    setupChartToggleAndNav();
 
     return () => {
       quarterFilterEl?.removeEventListener("change", onQuarterChange);
