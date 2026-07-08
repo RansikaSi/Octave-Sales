@@ -1,0 +1,191 @@
+{
+  "deals": [
+    { "id": 1, "name": "Analytical Twin", "co": "JF&I Packaging", "stage": "POC/Demo", "source": "Direct", "value": 5280000, "close": "2026-06-14", "won": false, "lost": false },
+    { "id": 2, "name": "Dealer De-Growth", "co": "Apollo Tyres Limited", "stage": "POC/Demo", "source": "Partner", "value": 21780000, "close": "2026-06-30", "won": false, "lost": false },
+    { "id": 3, "name": "Stichers per inch (SPI)", "co": "MAS Holdings", "stage": "POC/Demo", "source": "Direct", "value": 4950000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 4, "name": "AA Roadmap", "co": "DFCC Bank PLC", "stage": "Morphed", "source": "Direct", "value": 33000000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 5, "name": "Sales Forecasting", "co": "Americana", "stage": "Lost", "source": "Partner", "value": 75900000, "close": "2026-03-04", "won": false, "lost": true },
+    { "id": 6, "name": "Analytical services", "co": "The Colombo Fortland and Building", "stage": "Morphed", "source": "Direct", "value": 16500000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 7, "name": "Polycreations", "co": "Poly Creations (Pvt.) Ltd", "stage": "Morphed", "source": "Direct", "value": 16500000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 8, "name": "AA Roadmap", "co": "AACO", "stage": "Morphed", "source": "Partner", "value": 40000000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 9, "name": "AA Roadmap", "co": "Big Erics", "stage": "Morphed", "source": "Refferal", "value": 3000000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 10, "name": "Dashboard Development", "co": "Fonterra", "stage": "Morphed", "source": "Direct", "value": 3000000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 11, "name": "YKK", "co": "YKK Lanka (Private) Limited", "stage": "Morphed", "source": "Direct", "value": 3000000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 12, "name": "AA Roadmap", "co": "Maliban Wovens (Pvt) Ltd.", "stage": "Morphed", "source": "Direct", "value": 3000000, "close": "2026-03-31", "won": false, "lost": false },
+    { "id": 13, "name": "Absenteesim Prediction", "co": "Hidraramani", "stage": "POC/Demo", "source": "Direct", "value": 5280000, "close": "2026-02-15", "won": false, "lost": false },
+    { "id": 14, "name": "Distribution Efficiency", "co": "Link Natural", "stage": "Morphed", "source": "Direct", "value": 19140000, "close": "2026-02-15", "won": false, "lost": false },
+    { "id": 15, "name": "Travelodge Qick Sense Conv", "co": "Travelodge", "stage": "Contracted", "source": "Partner", "value": 1980000, "close": "2025-07-30", "won": true, "lost": false },
+    { "id": 16, "name": "Distributor Profitability", "co": "Siam City Cement (Lanka)", "stage": "POC/Demo", "source": "Direct", "value": 5280000, "close": "2025-07-31", "won": false, "lost": false },
+    { "id": 17, "name": "Travelodge - Discounts", "co": "Travelodge", "stage": "Contracted", "source": "Direct", "value": 990000, "close": "2025-07-31", "won": true, "lost": false },
+    { "id": 18, "name": "Travelodge - Additional Work", "co": "Travelodge", "stage": "Contracted", "source": "Direct", "value": 8250000, "close": "2025-07-31", "won": true, "lost": false },
+    { "id": 19, "name": "Beyond - NHSP DRIS SOW", "co": "NHSP", "stage": "Contracted", "source": "Direct", "value": 95040000, "close": "2025-07-07", "won": true, "lost": false },
+    { "id": 20, "name": "Travelodge - Invoice 7 & 8", "co": "Travelodge", "stage": "Contracted", "source": "Partner", "value": 12870000, "close": "2025-07-31", "won": true, "lost": false },
+    { "id": 21, "name": "AA Roadmap", "co": "McLarens Group", "stage": "Morphed", "source": "Direct", "value": 19800000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 22, "name": "AA Roadmap", "co": "The Royal Group of Cambodia", "stage": "Morphed", "source": "Partner", "value": 19800000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 23, "name": "AA Roadmap", "co": "Unilever Sri Lanka", "stage": "Morphed", "source": "Direct", "value": 33000000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 24, "name": "AA Roadmap", "co": "Spa Ceylon", "stage": "Morphed", "source": "Direct", "value": 16500000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 25, "name": "Audit RFP", "co": "Nations Trust Bank", "stage": "Morphed", "source": "Direct", "value": 16500000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 26, "name": "AA Roadmap", "co": "Sumathi Holdings", "stage": "Morphed", "source": "Direct", "value": 19800000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 27, "name": "AA Roadmap", "co": "Digital Mobility Solutions Lanka PLC", "stage": "Morphed", "source": "Direct", "value": 26400000, "close": "2026-03-04", "won": false, "lost": false },
+    { "id": 28, "name": "AA Roadmap", "co": "Hemas PLC", "stage": "Morphed", "source": "Direct", "value": 42570000, "close": "2025-03-31", "won": false, "lost": false },
+    { "id": 29, "name": "LegalPulse", "co": "OCTAVE", "stage": "POC/Demo", "source": "Direct", "value": 16500000, "close": "2026-06-10", "won": false, "lost": false },
+    { "id": 30, "name": "MMM", "co": "OCTAVE", "stage": "POC/Demo", "source": "Direct", "value": 5280000, "close": "2026-06-09", "won": false, "lost": false },
+    { "id": 31, "name": "Personalized Recommendation Engine", "co": "NagaWorld", "stage": "Inquiry", "source": "Partner", "value": 0, "close": "2026-06-15", "won": false, "lost": false },
+    { "id": 32, "name": "Deal Forger", "co": "OCTAVE", "stage": "POC/Demo", "source": "Direct", "value": 0, "close": "2026-06-10", "won": false, "lost": false }
+  ],
+  "dealStageCounts": { "Inquiry": 1, "Exploration": 0, "POC/Demo": 8, "Proposal": 0, "Negotiations": 0, "Contracted": 5, "Lost": 1, "Morphed": 17 },
+  "dealTotal": 32,
+  "stagesByQuarter": {
+    "Q1-2026": { "Inquiry": 1, "Exploration": 0, "POC/Demo": 8, "Proposal": 0, "Negotiations": 0, "Contracted": 5, "Lost": 1, "Morphed": 17, "total": 32 }
+  },
+  "bmByQuarter": {
+    "Q1-2026": {
+      "displayLabel": "Q1 2026 (Apr – Jun)",
+      "lastUpdated": "3 Jul 2026",
+      "totalDeals": 32,
+      "revQtdTarget": 75, "revQtdCurrent": 5,
+      "newClientsTarget": 3, "newClientsCurrent": 2,
+      "closedDealsTarget": 5, "closedDealsCurrent": 1,
+      "billedQtdTarget": 37.5, "billedQtdCurrent": 0,
+      "revYtdTarget": 300, "revYtdCurrent": 5,
+      "billedYtdTarget": 225, "billedYtdCurrent": 0,
+      "budgetAlloc": 10, "budgetSpend": 4,
+      "utilization": 0.4,
+      "costPerInquiry": 1000000, "costPerAcq": "N/A", "costPerRev": 0.8,
+      "revMtdTarget": 25, "newClientsMtdTarget": 1, "closedDealsMtdTarget": 2, "billedMtdTarget": 12.5,
+      "accountsTarget": 120, "contactedTarget": 240, "repliesTarget": 48, "positiveTarget": 36
+    }
+  },
+  "channelsByQuarter": {
+    "Q1-2026": [
+      { "name": "LinkedIn", "accounts": 143, "contacted": 276, "replies": 0, "positive": 0 },
+      { "name": "Email Campaign", "accounts": 0, "contacted": 0, "replies": 0, "positive": 0 },
+      { "name": "Events/Conf.", "accounts": 47, "contacted": 47, "replies": 0, "positive": 0 },
+      { "name": "Referrals", "accounts": 2, "contacted": 2, "replies": 2, "positive": 2 },
+      { "name": "Networking", "accounts": 0, "contacted": 0, "replies": 0, "positive": 0 }
+    ]
+  },
+  "projects": [
+    {
+      "client": "MAS Holdings", "project": "Computer Vision & Analytics", "type": "POC", "status": "Ongoing",
+      "value": "LKR 5,000,000", "milestone": "POC to be completed", "date": "Pending",
+      "invoice": "TBC", "actual": "TBC", "planned": "40",
+      "next": "Revalidate the image requirement for \"Overlock\" stitches and design and update the actual build needed to be practically implemented on the shop floor."
+    },
+    {
+      "client": "Apollo Tyres", "project": "Dealer De-growth", "type": "POC", "status": "To Start",
+      "value": "LKR 21,700,000", "milestone": "TBC", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "60",
+      "next": "Interview with Data & Tech Team to be completed. POC SOW and pricing to be shared by 10th June — awaiting feedback, follow up began."
+    },
+    {
+      "client": "Hirdaramani", "project": "Absenteeism Prediction", "type": "POC", "status": "To Start",
+      "value": "LKR 5,000,000", "milestone": "POC kickoff", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "40",
+      "next": "Scoping questions for visit to Vauniya plant shared with Hidaramani, awaiting Hidaramani to get back. Planned visit to the Vauniya plant on the 22nd of June delayed — waiting for new dates."
+    },
+    {
+      "client": "INSEE Cement", "project": "Distributor Profitability", "type": "POC", "status": "To Start",
+      "value": "LKR 5,000,000", "milestone": "POC kickoff", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "40",
+      "next": "Meeting with INSEE CEO to be scheduled for this week."
+    },
+    {
+      "client": "NTB", "project": "Analytics in Internal Audit", "type": "TBC", "status": "TBC",
+      "value": "TBC", "milestone": "TBC", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "TBC",
+      "next": "RFP Response submitted on 25th May currently awaiting NTB's review and feedback."
+    },
+    {
+      "client": "Octave", "project": "MMM", "type": "POC", "status": "TBC",
+      "value": "TBC", "milestone": "TBC", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "TBC",
+      "next": "UAL clearance received. External interface to be prepared."
+    },
+    {
+      "client": "SFSA", "project": "Legal Pulse", "type": "POC", "status": "To Start",
+      "value": "LKR 5,000,000", "milestone": "TBC", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "TBC",
+      "next": "Final demo done — planning the next steps to position to clients in the UK."
+    },
+    {
+      "client": "JF&I Packaging", "project": "Analytical Twin", "type": "POC", "status": "To Start",
+      "value": "LKR 5,000,000", "milestone": "TBC", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "40",
+      "next": "Detailed discussion with the planning team was concluded; final preparation for the presentation to the leadership."
+    },
+    {
+      "client": "SFSA", "project": "Deal Forger", "type": "POC", "status": "To Start",
+      "value": "LKR 5,000,000", "milestone": "TBC", "date": "TBC",
+      "invoice": "TBC", "actual": "TBC", "planned": "TBC",
+      "next": "POC / Demo discussion completed — next steps planning."
+    }
+  ],
+  "partners": [
+    {
+      "name": "SFSA", "region": "UK", "status": "On board", "section": "Active", "opportunities": "3",
+      "engagements": [
+        { "name": "Apollo", "value": 5000000 },
+        { "name": "Legal Pulse", "value": 5000000 },
+        { "name": "Deal Forger", "value": 5000000 }
+      ],
+      "total": 15000000,
+      "contacts": [
+        { "role": "Primary Contact", "name": "Priyan Manatunga", "mobile": "+44 787 297 0490", "email": "pmanatunga@serendibfs.com" },
+        { "role": "Secondary Contact", "name": "Hashan Amarasuriya", "mobile": "", "email": "HAmarasuriya@sfsanalytics.co.uk" }
+      ]
+    },
+    {
+      "name": "WSO2", "region": "APAC", "status": "New", "section": "Pending", "opportunities": "2",
+      "engagements": [
+        { "name": "NagaWorld - Cambodia", "value": null },
+        { "name": "Mitsubishi - India", "value": null }
+      ],
+      "total": null,
+      "contacts": [
+        { "role": "Primary Contact", "name": "Sohail Puvinayagam", "mobile": "+94 72 820 3577", "email": "sohail@wso2.com" },
+        { "role": "Secondary Contact", "name": "Adeesha Savinda De Silva", "mobile": "+94 76 354 0500", "email": "adeesha@wso2.com" }
+      ]
+    },
+    {
+      "name": "TechOne", "region": "Sri Lanka", "status": "New", "section": "Pending", "opportunities": "1",
+      "engagements": [{ "name": "Not confirmed", "value": null }],
+      "total": null,
+      "contacts": [
+        { "role": "Primary Contact", "name": "Dhammika Weerakoon", "mobile": "+94 77 383 2357", "email": "dhammika@techoneglobal.com" }
+      ]
+    },
+    {
+      "name": "Atton Holdings", "region": "India/UK/Maldives", "status": "New", "section": "Pending", "opportunities": "",
+      "engagements": [{ "name": "Not confirmed", "value": null }],
+      "total": null,
+      "contacts": [
+        { "role": "Primary Contact", "name": "Stefan Atton", "mobile": "", "email": "" }
+      ]
+    },
+    {
+      "name": "DragonFly Business", "region": "UK", "status": "New", "section": "Pending", "opportunities": "",
+      "engagements": [{ "name": "Not confirmed", "value": null }],
+      "total": null,
+      "contacts": [
+        { "role": "Primary Contact", "name": "Ayan Mookerjee", "mobile": "+971 (0)5857 95960", "email": "Ayan.Mookerjee@dragonflybusiness.co.uk" }
+      ]
+    }
+  ],
+  "positiveInquiries": [
+    { "account": "Akbar Brothers", "name": "Huzefa Akbarally", "designation": "Executive Director", "email": null }
+  ],
+  "leadGenWeekly": {
+    "last3": [
+      { "week": "Week 23", "current": "1", "newLeads": "0", "active": "0", "lost": "0", "notes": "" },
+      { "week": "Week 24", "current": "1", "newLeads": "0", "active": "1", "lost": "0", "notes": "Active Lead — JF&I — Meeting w/ Planning Team" },
+      { "week": "Week 25", "current": "2", "newLeads": "1", "active": "0", "lost": "0", "notes": "New Lead — AKBAR Brothers — New Lead" }
+    ],
+    "thisWeek": [
+      { "week": "Week 26", "current": "2", "newLeads": "0", "active": "0", "lost": "0", "notes": "" }
+    ],
+    "nextWeek": [
+      { "week": "Week 26", "target": "12", "notes": "Target Accounts" }
+    ]
+  }
+}
