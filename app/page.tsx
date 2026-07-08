@@ -28,7 +28,23 @@ const DASHBOARD_HTML = `
         <span class="wordmark-dot"></span>OCTAVE
       </div>
       <div class="wordmark-sub">Sales Intelligence</div>
-      <div class="wordmark-date">Data as of 3 July 2026</div>
+      <div class="wordmark-date" id="wordmarkDate">—</div>
+    </div>
+
+    <div class="theme-switch" role="group" aria-label="Color theme">
+      <button type="button" class="theme-opt" data-theme-set="light" aria-label="Use light theme">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="8" cy="8" r="3"/>
+          <path d="M8 1.5v1.5M8 13v1.5M1.5 8h1.5M13 8h1.5M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/>
+        </svg>
+        <span>Light</span>
+      </button>
+      <button type="button" class="theme-opt" data-theme-set="dark" aria-label="Use dark theme">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/>
+        </svg>
+        <span>Dark</span>
+      </button>
     </div>
 
     <div class="nav-item active" data-view="overview">
@@ -71,22 +87,6 @@ const DASHBOARD_HTML = `
         </svg>
         Update Data
       </a>
-    </div>
-
-    <div class="theme-switch" role="group" aria-label="Color theme">
-      <button type="button" class="theme-opt" data-theme-set="light" aria-label="Use light theme">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-          <circle cx="8" cy="8" r="3"/>
-          <path d="M8 1.5v1.5M8 13v1.5M1.5 8h1.5M13 8h1.5M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/>
-        </svg>
-        <span>Light</span>
-      </button>
-      <button type="button" class="theme-opt" data-theme-set="dark" aria-label="Use dark theme">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/>
-        </svg>
-        <span>Dark</span>
-      </button>
     </div>
 
     <div class="sidebar-foot">
@@ -1005,6 +1005,12 @@ export default function DashboardPage() {
     const bmDataByQuarter = buildBmDataByQuarter(dashboardData);
     let activeQuarter = Object.keys(bmDataByQuarter)[0] || "";
 
+    const wordmarkDateEl = document.getElementById("wordmarkDate");
+    if (wordmarkDateEl) {
+      const lastUpdated = activeQuarter ? bmDataByQuarter[activeQuarter]?.lastUpdated : null;
+      wordmarkDateEl.textContent = lastUpdated ? `Data as of ${lastUpdated}` : "—";
+    }
+
     renderOverview(dashboardData.deals);
     populateQuarterFilter(bmDataByQuarter, activeQuarter);
     if (activeQuarter) renderBusinessMetrics(bmDataByQuarter, activeQuarter);
@@ -1017,6 +1023,10 @@ export default function DashboardPage() {
     const onQuarterChange = (e: Event) => {
       activeQuarter = (e.target as HTMLSelectElement).value;
       renderBusinessMetrics(bmDataByQuarter, activeQuarter);
+      if (wordmarkDateEl) {
+        const lastUpdated = bmDataByQuarter[activeQuarter]?.lastUpdated;
+        wordmarkDateEl.textContent = lastUpdated ? `Data as of ${lastUpdated}` : "—";
+      }
     };
     quarterFilterEl?.addEventListener("change", onQuarterChange);
 
