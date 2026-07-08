@@ -134,7 +134,10 @@ export default function UploadPage() {
       }
       setSubmitState("deploying");
       setSubmitMessage("Committed. Waiting for Vercel to redeploy with the new data…");
-      waitForDeployThenRedirect(JSON.stringify(parsed, null, 2));
+      // Compare against the server's committed JSON (data + real updatedAt
+      // timestamp it stamped), not our pre-submission payload — the server
+      // adds updatedAt after we send, so our own copy would never match.
+      waitForDeployThenRedirect(JSON.stringify(body.data ?? parsed, null, 2));
     } catch (err: any) {
       setSubmitState("error");
       setSubmitMessage(err?.message || "Network error — could not reach the update endpoint.");

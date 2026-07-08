@@ -34,7 +34,13 @@ const projects = buildProjects(dashboardData.projects);
 const partners = buildPartners(dashboardData.partners);
 const leadGen = buildLeadGenWeekly(dashboardData.leadGenWeekly);
 const posInqHtml = buildPositiveInquiries(dashboardData.positiveInquiries);
-const wordmarkDateText = bm?.lastUpdated ? `Data as of ${bm.lastUpdated}` : "—";
+// Sidebar "Data as of" reflects when this dataset was actually committed via
+// /upload (updatedAt, stamped server-side) — not a per-quarter "Last
+// Updated" cell from the spreadsheet, which may be manually typed, stale, or
+// not even the most recent quarter in the sheet.
+const wordmarkDateText = dashboardData.updatedAt
+  ? `Data as of ${new Date(dashboardData.updatedAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}`
+  : "—";
 const quarterOptionsHtml = Object.keys(bmDataByQuarter)
   .map((q) => `<option value="${q}">${bmDataByQuarter[q]?.displayLabel || q}</option>`)
   .join("");
@@ -1023,14 +1029,9 @@ export default function DashboardPage() {
     animateBars();
 
     const quarterFilterEl = document.getElementById("quarterFilter");
-    const wordmarkDateEl = document.getElementById("wordmarkDate");
     const onQuarterChange = (e: Event) => {
       const q = (e.target as HTMLSelectElement).value;
       mountBusinessMetrics(bmDataByQuarter, q);
-      if (wordmarkDateEl) {
-        const lastUpdated = bmDataByQuarter[q]?.lastUpdated;
-        wordmarkDateEl.textContent = lastUpdated ? `Data as of ${lastUpdated}` : "—";
-      }
     };
     quarterFilterEl?.addEventListener("change", onQuarterChange);
 

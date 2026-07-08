@@ -142,6 +142,11 @@ export interface DashboardData {
     thisWeek: LeadGenWeekRow[];
     nextWeek: LeadGenNextWeekRow[];
   };
+  // ISO timestamp of when this dataset was actually committed via /upload —
+  // stamped server-side in /api/update-data, not read from any spreadsheet
+  // cell. This is what the sidebar's "Data as of" reflects. Absent on data
+  // that predates this field (falls back to "—" in the UI).
+  updatedAt?: string;
 }
 
 const EMPTY_STAGE_COUNTS = (): Record<string, number> => ({

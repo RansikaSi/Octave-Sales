@@ -51,7 +51,13 @@ export async function POST(req: NextRequest) {
       if (err?.status !== 404) throw err;
     }
 
-    const content = Buffer.from(JSON.stringify(data, null, 2)).toString("base64");
+    // Stamp the actual commit time server-side — this is what the sidebar's
+    // "Data as of" shows, so it must come from the server clock, not
+    // whatever the client happened to send (and not a manually-typed cell
+    // in the spreadsheet). Returned below so /upload can poll for this exact
+    // final JSON to detect when the redeploy carrying it has gone live.
+    const finalData = { ...(data as Record<string, unknown>), updatedAt: new Date().toISOString() };
+    const content = Buffer.from(JSON.stringify(finalData, null, 2)).toString("base64");
 
     await octokit.repos.createOrUpdateFileContents({
       owner,
@@ -63,7 +69,7 @@ export async function POST(req: NextRequest) {
       branch,
     });
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, data: finalData });
   } catch (err: any) {
     const status = err?.status;
     let message = err?.message || "Unknown error while committing to GitHub.";
