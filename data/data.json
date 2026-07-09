@@ -421,15 +421,15 @@
       "total": 35
     },
     "Q2-2026": {
-      "Inquiry": 0,
+      "Inquiry": 5,
       "Exploration": 0,
-      "POC/Demo": 0,
+      "POC/Demo": 8,
       "Proposal": 0,
       "Negotiations": 0,
-      "Contracted": 0,
-      "Lost": 0,
-      "Morphed": 0,
-      "total": 0
+      "Contracted": 5,
+      "Lost": 1,
+      "Morphed": 16,
+      "total": 35
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -505,7 +505,7 @@
       "budgetAlloc": null,
       "budgetSpend": null,
       "utilization": "",
-      "costPerInquiry": "",
+      "costPerInquiry": 0,
       "costPerAcq": null,
       "costPerRev": "",
       "revMtdTarget": null,
@@ -621,8 +621,8 @@
     "Q2-2026": [
       {
         "name": "LinkedIn",
-        "accounts": 0,
-        "contacted": 0,
+        "accounts": 143,
+        "contacted": 276,
         "replies": 0,
         "positive": 0
       },
@@ -635,24 +635,24 @@
       },
       {
         "name": "Events/Conf.",
-        "accounts": 0,
-        "contacted": 0,
+        "accounts": 47,
+        "contacted": 47,
         "replies": 0,
         "positive": 0
       },
       {
         "name": "Referrals",
-        "accounts": 0,
-        "contacted": 0,
-        "replies": 0,
-        "positive": 0
+        "accounts": 2,
+        "contacted": 2,
+        "replies": 2,
+        "positive": 2
       },
       {
         "name": "Cold Calling",
-        "accounts": 0,
+        "accounts": 4,
         "contacted": 0,
-        "replies": 0,
-        "positive": 0
+        "replies": 2,
+        "positive": 2
       }
     ],
     "Q3-2026": [
@@ -793,7 +793,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "RFP Response submitted on 25th May currently awaiting NTB's review and feedback.",
+      "next": "Presented to Paul",
       "status": "TBC"
     },
     {
@@ -1038,7 +1038,7 @@
   "leadGenWeekly": {
     "last3": [
       {
-        "week": "Week 23",
+        "week": "Week 24",
         "current": "1",
         "newLeads": "0",
         "active": "0",
@@ -1046,7 +1046,7 @@
         "notes": ""
       },
       {
-        "week": "Week 24",
+        "week": "Week 25",
         "current": "1",
         "newLeads": "0",
         "active": "1",
@@ -1054,7 +1054,7 @@
         "notes": "Active Lead - JF&I - Meeting w/ Planning Team"
       },
       {
-        "week": "Week 25",
+        "week": "Week 26",
         "current": "2",
         "newLeads": "1",
         "active": "0",
@@ -1064,7 +1064,7 @@
     ],
     "thisWeek": [
       {
-        "week": "Week 26",
+        "week": "Week 27",
         "current": "2",
         "newLeads": "0",
         "active": "0",
@@ -1074,11 +1074,11 @@
     ],
     "nextWeek": [
       {
-        "week": "Week 27",
+        "week": "Week 28",
         "target": "12",
         "notes": "Target Accounts"
       }
     ]
   },
-  "updatedAt": "2026-07-08T08:03:12.896Z"
+  "updatedAt": "2026-07-09T13:42:53.047Z"
 }
