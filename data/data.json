@@ -1034,7 +1034,32 @@
       "section": "Pending"
     }
   ],
-  "positiveInquiries": [],
+  "positiveInquiries": [
+    {
+      "account": "Quarter code",
+      "name": "Account",
+      "designation": "Name",
+      "email": "Designation"
+    },
+    {
+      "account": "Q2-2026",
+      "name": "Akbar Brothers",
+      "designation": "Huzefa Akbarally",
+      "email": "Executive Director"
+    },
+    {
+      "account": "Q2-2026",
+      "name": "Dimo",
+      "designation": null,
+      "email": null
+    },
+    {
+      "account": "Q2-2026",
+      "name": "David Peries",
+      "designation": null,
+      "email": null
+    }
+  ],
   "leadGenWeekly": {
     "last3": [
       {
@@ -1080,5 +1105,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-09T15:16:36.187Z"
+  "updatedAt": "2026-07-09T15:23:59.630Z"
 }
