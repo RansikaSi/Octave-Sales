@@ -1036,26 +1036,26 @@
   ],
   "positiveInquiries": [
     {
-      "account": "Quarter code",
-      "name": "Account",
-      "designation": "Name",
-      "email": "Designation"
+      "account": "Account",
+      "name": "Name",
+      "designation": "Designation",
+      "email": "Email"
     },
     {
-      "account": "Q2-2026",
-      "name": "Akbar Brothers",
-      "designation": "Huzefa Akbarally",
-      "email": "Executive Director"
+      "account": "Akbar Brothers",
+      "name": "Huzefa Akbarally",
+      "designation": "Executive Director",
+      "email": "—"
     },
     {
-      "account": "Q2-2026",
-      "name": "Dimo",
+      "account": "Dimo",
+      "name": null,
       "designation": null,
       "email": null
     },
     {
-      "account": "Q2-2026",
-      "name": "David Peries",
+      "account": "David Peries",
+      "name": null,
       "designation": null,
       "email": null
     }
@@ -1105,5 +1105,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-09T15:23:59.630Z"
+  "updatedAt": "2026-07-09T15:25:59.665Z"
 }
