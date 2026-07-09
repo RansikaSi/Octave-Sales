@@ -1036,12 +1036,6 @@
   ],
   "positiveInquiries": [
     {
-      "account": "Account",
-      "name": "Name",
-      "designation": "Designation",
-      "email": "Email"
-    },
-    {
       "account": "Akbar Brothers",
       "name": "Huzefa Akbarally",
       "designation": "Executive Director",
@@ -1105,5 +1099,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-09T15:25:59.665Z"
+  "updatedAt": "2026-07-09T15:27:45.749Z"
 }
