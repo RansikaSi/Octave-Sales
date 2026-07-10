@@ -472,10 +472,21 @@
       "close": "2026-07-08",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 39727802913,
+      "name": "MMM ",
+      "co": "Ceylinco Life ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-07-08",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 10,
+    "Inquiry": 11,
     "Exploration": 0,
     "POC/Demo": 10,
     "Proposal": 0,
@@ -484,7 +495,7 @@
     "Lost": 1,
     "Morphed": 17
   },
-  "dealTotal": 43,
+  "dealTotal": 44,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -1142,26 +1153,26 @@
     },
     {
       "account": "DIMO",
-      "name": null,
-      "designation": null,
+      "name": "Rajeev Pandithage",
+      "designation": "Executive Director",
       "email": null
     },
     {
       "account": "David Peries",
-      "name": null,
-      "designation": null,
+      "name": "Jayaraj Sayanthan",
+      "designation": "Group CIO",
       "email": null
     },
     {
       "account": "AIA Insurance",
-      "name": null,
-      "designation": null,
+      "name": "Dilshan Rabbie",
+      "designation": "Senior Manager - Digital and Brand engagement",
       "email": null
     },
     {
       "account": "Sunshine Holdings",
-      "name": null,
-      "designation": null,
+      "name": "Nadina Fernando",
+      "designation": "General Manager - Marketing",
       "email": null
     },
     {
@@ -1172,8 +1183,14 @@
     },
     {
       "account": "Fairfirst Insurance",
-      "name": null,
-      "designation": null,
+      "name": "Clement Fernandopulle",
+      "designation": "Group CIO",
+      "email": null
+    },
+    {
+      "account": "Ceylinco Life",
+      "name": "Samitha Hemachandra",
+      "designation": "GM - Marketing",
       "email": null
     }
   ],
@@ -1222,5 +1239,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-10T03:07:56.721Z"
+  "updatedAt": "2026-07-10T03:25:42.183Z"
 }
