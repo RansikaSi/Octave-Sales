@@ -414,7 +414,7 @@
       "stage": "Inquiry",
       "source": "Direct",
       "value": 0,
-      "close": "TBC",
+      "close": "2026-07-08",
       "won": false,
       "lost": false
     },
@@ -425,7 +425,7 @@
       "stage": "Inquiry",
       "source": "Direct",
       "value": 0,
-      "close": "TBC",
+      "close": "2026-07-08",
       "won": false,
       "lost": false
     },
@@ -436,7 +436,7 @@
       "stage": "POC/Demo",
       "source": "Direct",
       "value": 5,
-      "close": "TBC",
+      "close": "2026-07-08",
       "won": false,
       "lost": false
     },
@@ -447,7 +447,7 @@
       "stage": "Inquiry",
       "source": "Direct",
       "value": 0,
-      "close": "TBC",
+      "close": "2026-07-08",
       "won": false,
       "lost": false
     },
@@ -458,7 +458,7 @@
       "stage": "Inquiry",
       "source": "Direct",
       "value": 0,
-      "close": "TBC",
+      "close": "2026-07-08",
       "won": false,
       "lost": false
     },
@@ -469,7 +469,7 @@
       "stage": "POC/Demo",
       "source": "Direct",
       "value": 5,
-      "close": "TBC",
+      "close": "2026-07-08",
       "won": false,
       "lost": false
     }
@@ -505,8 +505,8 @@
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
-      "Morphed": 16,
-      "total": 42
+      "Morphed": 17,
+      "total": 43
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -579,12 +579,12 @@
       "revYtdCurrent": 5,
       "billedYtdTarget": 225,
       "billedYtdCurrent": 0,
-      "budgetAlloc": 10,
-      "budgetSpend": 4,
-      "utilization": 0.4,
-      "costPerInquiry": 1000000,
+      "budgetAlloc": 6,
+      "budgetSpend": 0,
+      "utilization": 0,
+      "costPerInquiry": 0,
       "costPerAcq": "N/A",
-      "costPerRev": 0.8,
+      "costPerRev": 0,
       "revMtdTarget": 25,
       "newClientsMtdTarget": 1,
       "closedDealsMtdTarget": 2,
@@ -1141,7 +1141,7 @@
       "email": "—"
     },
     {
-      "account": "Dimo",
+      "account": "DIMO",
       "name": null,
       "designation": null,
       "email": null
@@ -1153,7 +1153,7 @@
       "email": null
     },
     {
-      "account": "AIA",
+      "account": "AIA Insurance",
       "name": null,
       "designation": null,
       "email": null
@@ -1171,7 +1171,7 @@
       "email": null
     },
     {
-      "account": "Fairfirst",
+      "account": "Fairfirst Insurance",
       "name": null,
       "designation": null,
       "email": null
@@ -1222,5 +1222,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-10T02:48:16.857Z"
+  "updatedAt": "2026-07-10T03:07:56.721Z"
 }
