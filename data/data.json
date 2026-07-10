@@ -395,19 +395,96 @@
       "close": "2026-06-15",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 37275602971,
+      "name": "TAX RFP",
+      "co": "JKH PLC",
+      "stage": "Inquiry",
+      "source": "Direct",
+      "value": 0,
+      "close": "2026-06-15",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 38727802971,
+      "name": "Complience RFP",
+      "co": "JKH PLC",
+      "stage": "Inquiry",
+      "source": "Direct",
+      "value": 0,
+      "close": "TBC",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 62972780971,
+      "name": "TBC",
+      "co": "ALFT",
+      "stage": "Inquiry",
+      "source": "Direct",
+      "value": 0,
+      "close": "TBC",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 39727802971,
+      "name": "Sentinal ",
+      "co": "OCTAVE",
+      "stage": "POC/Demo",
+      "source": "Direct",
+      "value": 5,
+      "close": "TBC",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 19727802971,
+      "name": "TBC",
+      "co": "DIMO",
+      "stage": "Inquiry",
+      "source": "Direct",
+      "value": 0,
+      "close": "TBC",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 39327802971,
+      "name": "TBC",
+      "co": "David Peiris",
+      "stage": "Inquiry",
+      "source": "Direct",
+      "value": 0,
+      "close": "TBC",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 39727802913,
+      "name": "Cost Sherlock",
+      "co": "GSK India",
+      "stage": "POC/Demo",
+      "source": "Direct",
+      "value": 5,
+      "close": "TBC",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 5,
+    "Inquiry": 10,
     "Exploration": 0,
-    "POC/Demo": 8,
+    "POC/Demo": 10,
     "Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
     "Morphed": 17
   },
-  "dealTotal": 36,
+  "dealTotal": 43,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -421,15 +498,15 @@
       "total": 35
     },
     "Q2-2026": {
-      "Inquiry": 5,
+      "Inquiry": 10,
       "Exploration": 0,
-      "POC/Demo": 8,
+      "POC/Demo": 10,
       "Proposal": 0,
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
       "Morphed": 16,
-      "total": 35
+      "total": 42
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -489,7 +566,7 @@
     "Q2-2026": {
       "displayLabel": "Q2 2026 (July – Sep)",
       "lastUpdated": "08 Jul 2026",
-      "totalDeals": 35,
+      "totalDeals": 42,
       "revQtdTarget": 75,
       "revQtdCurrent": 5,
       "newClientsTarget": 3,
@@ -621,8 +698,8 @@
     "Q2-2026": [
       {
         "name": "LinkedIn",
-        "accounts": 143,
-        "contacted": 276,
+        "accounts": 0,
+        "contacted": 0,
         "replies": 0,
         "positive": 0
       },
@@ -635,24 +712,24 @@
       },
       {
         "name": "Events/Conf.",
-        "accounts": 47,
-        "contacted": 47,
+        "accounts": 0,
+        "contacted": 0,
         "replies": 0,
         "positive": 0
       },
       {
         "name": "Referrals",
-        "accounts": 2,
-        "contacted": 2,
-        "replies": 2,
-        "positive": 2
+        "accounts": 0,
+        "contacted": 0,
+        "replies": 0,
+        "positive": 0
       },
       {
         "name": "Cold Calling",
-        "accounts": 4,
+        "accounts": 0,
         "contacted": 0,
-        "replies": 2,
-        "positive": 2
+        "replies": 0,
+        "positive": 0
       }
     ],
     "Q3-2026": [
@@ -793,7 +870,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Presented to Paul",
+      "next": "RFP Response submitted on 25th May currently awaiting NTB's review and feedback.",
       "status": "TBC"
     },
     {
@@ -959,7 +1036,7 @@
           "email": "adeesha@wso2.com"
         }
       ],
-      "section": "Pending"
+      "section": "Active"
     },
     {
       "name": "TechOne",
@@ -987,7 +1064,7 @@
           "email": "Sudantha.ccs@keells.com"
         }
       ],
-      "section": "Pending"
+      "section": "Active"
     },
     {
       "name": "Atton Holdings",
@@ -1005,11 +1082,11 @@
         {
           "role": "Primary Contact",
           "name": "Stefan Atton",
-          "mobile": "-",
-          "email": "-"
+          "mobile": "+1 (365) 292-3307",
+          "email": "stefan@attonholdings.com"
         }
       ],
-      "section": "Pending"
+      "section": "Active"
     },
     {
       "name": "DragonFly Business",
@@ -1032,6 +1109,28 @@
         }
       ],
       "section": "Pending"
+    },
+    {
+      "name": "TBC",
+      "region": "India",
+      "status": "New",
+      "opportunities": "N/A",
+      "engagements": [
+        {
+          "name": "Not confirmed",
+          "value": null
+        }
+      ],
+      "total": null,
+      "contacts": [
+        {
+          "role": "Primary Contact",
+          "name": "TBC",
+          "mobile": "",
+          "email": ""
+        }
+      ],
+      "section": "Active"
     }
   ],
   "positiveInquiries": [
@@ -1049,6 +1148,30 @@
     },
     {
       "account": "David Peries",
+      "name": null,
+      "designation": null,
+      "email": null
+    },
+    {
+      "account": "AIA",
+      "name": null,
+      "designation": null,
+      "email": null
+    },
+    {
+      "account": "Sunshine Holdings",
+      "name": null,
+      "designation": null,
+      "email": null
+    },
+    {
+      "account": "ALFT Packaging",
+      "name": null,
+      "designation": null,
+      "email": null
+    },
+    {
+      "account": "Fairfirst",
       "name": null,
       "designation": null,
       "email": null
@@ -1084,11 +1207,11 @@
     "thisWeek": [
       {
         "week": "Week 27",
-        "current": "2",
-        "newLeads": "0",
+        "current": "3",
+        "newLeads": "1",
         "active": "0",
         "lost": "0",
-        "notes": ""
+        "notes": "New Lead - ALFT Packaging & Printing"
       }
     ],
     "nextWeek": [
@@ -1099,5 +1222,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-09T15:27:45.749Z"
+  "updatedAt": "2026-07-10T02:46:03.171Z"
 }
