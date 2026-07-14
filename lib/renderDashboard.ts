@@ -38,14 +38,11 @@ const ACTIVE_STAGES = ["Contracted", "Negotiations", "Proposal", "POC/Demo", "Ex
 // animateBars() runs post-mount, instead of appearing at full size.
 const animatedBar = (widthPct: number | string) => `width:0%" data-w="${widthPct}%`;
 
-// ============ OVERVIEW (funnel / donut / stage breakdown / KPIs / source chart) ============
+// ============ OVERVIEW (funnel / stage breakdown / KPIs / source chart) ============
 export interface OverviewBuild {
   kpis: { active: number; total: number; won: number; closedLost: number; winRate: string };
   funnelHtml: string;
   stageValueHtml: string;
-  donutTotal: number;
-  donutPathsHtml: string;
-  donutLegendHtml: string;
   stageBreakdownHtml: string;
   sourceChartHtml: string;
   sourceLegendHtml: string;
@@ -95,25 +92,6 @@ export function buildOverview(deals: Deal[]): OverviewBuild {
     .join("");
   stageValueHtml += `<div class="stage-value-row" style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);"><div class="funnel-label">${newClosed.name}</div><div class="sv-bar-wrap"><div class="sv-bar" style="${animatedBar(100)};background:#7A7A88;"></div></div><div class="sv-num">${fmt(newClosed.value)}</div></div>`;
 
-  // Donut
-  const donutStages = [...newStages, { name: "Lost", count: stageCounts.Lost }, { name: "Morphed", count: stageCounts.Morphed }];
-  let cumA = -Math.PI / 2;
-  const R = 92, ri = 58;
-  let donutPathsHtml = "";
-  let donutLegendHtml = "";
-  donutStages.forEach((s) => {
-    const a = totalCount > 0 ? (s.count / totalCount) * Math.PI * 2 : 0;
-    const x1 = Math.cos(cumA) * R, y1 = Math.sin(cumA) * R;
-    const x2 = Math.cos(cumA + a) * R, y2 = Math.sin(cumA + a) * R;
-    const xi1 = Math.cos(cumA) * ri, yi1 = Math.sin(cumA) * ri;
-    const xi2 = Math.cos(cumA + a) * ri, yi2 = Math.sin(cumA + a) * ri;
-    const large = a > Math.PI ? 1 : 0;
-    const d = `M ${x1} ${y1} A ${R} ${R} 0 ${large} 1 ${x2} ${y2} L ${xi2} ${yi2} A ${ri} ${ri} 0 ${large} 0 ${xi1} ${yi1} Z`;
-    donutPathsHtml += `<path d="${d}" fill="${DONUT_COLORS[s.name] || "#888"}" style="stroke:var(--panel)" stroke-width="2"/>`;
-    cumA += a;
-    donutLegendHtml += `<div class="legend-row"><span class="legend-dot" style="background:${DONUT_COLORS[s.name] || "#888"}"></span><span class="legend-name">${s.name}</span><span class="legend-val">${s.count}</span></div>`;
-  });
-
   // Stage breakdown accordion
   const stageGroupOrder = ["Contracted", "Negotiations", "Proposal", "POC/Demo", "Exploration", "Inquiry"];
   const groups = [
@@ -158,9 +136,6 @@ export function buildOverview(deals: Deal[]): OverviewBuild {
     kpis: { active, total: deals.length, won, closedLost, winRate },
     funnelHtml,
     stageValueHtml,
-    donutTotal: totalCount,
-    donutPathsHtml,
-    donutLegendHtml,
     stageBreakdownHtml,
     sourceChartHtml,
     sourceLegendHtml,

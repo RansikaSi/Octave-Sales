@@ -215,29 +215,52 @@ const DASHBOARD_HTML = `
       </div>
     </div>
 
+    <div class="row" style="grid-template-columns: 1fr;">
+
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div class="card-head" style="padding: 18px 20px 0; margin-bottom: 12px;">
+          <div class="card-title">Deals by Stage Breakdown</div>
+        </div>
+        <div class="table-wrap">
+          <table class="stage-breakdown-table">
+            <colgroup>
+              <col class="sb-chev"/>
+              <col class="sb-stage"/>
+              <col class="sb-count"/>
+              <col class="sb-value"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Stage</th>
+                <th>Deals</th>
+                <th>Value (LKR)</th>
+              </tr>
+            </thead>
+            <tbody id="stageBreakdownBody">${overview.stageBreakdownHtml}</tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" style="grid-template-columns: 1fr;">
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Deal Stages by Source</div>
+          <div class="card-badge">count · by acquisition channel</div>
+        </div>
+        <div id="sourceChart" class="source-chart">${overview.sourceChartHtml}</div>
+        <div id="sourceLegend" class="source-legend">${overview.sourceLegendHtml}</div>
+      </div>
+
+    </div>
+
     <div class="row" style="grid-template-columns: 1fr; margin-bottom: 6px;">
       <h2 class="bm-section-title" style="margin-bottom: 0;">Lead Generation Effort</h2>
     </div>
     <div class="leadgen-stack">
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">Last 3 Weeks</div>
-        </div>
-        <table class="leadgen-table">
-          <thead>
-            <tr>
-              <th>Week</th>
-              <th>Current Leads</th>
-              <th>This Week New Leads</th>
-              <th>This Week Active Leads</th>
-              <th>This Week Lost Leads</th>
-              <th class="lg-notes">Notes</th>
-            </tr>
-          </thead>
-          <tbody id="lgLast3Body">${leadGen.last3Html}</tbody>
-        </table>
-      </div>
 
       <div class="card">
         <div class="card-head">
@@ -274,9 +297,28 @@ const DASHBOARD_HTML = `
         </table>
       </div>
 
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Last 3 Weeks</div>
+        </div>
+        <table class="leadgen-table">
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Current Leads</th>
+              <th>This Week New Leads</th>
+              <th>This Week Active Leads</th>
+              <th>This Week Lost Leads</th>
+              <th class="lg-notes">Notes</th>
+            </tr>
+          </thead>
+          <tbody id="lgLast3Body">${leadGen.last3Html}</tbody>
+        </table>
+      </div>
+
     </div>
 
-    <div class="row row-a">
+    <div class="row" style="grid-template-columns: 1fr;">
 
       <div class="card">
         <div class="card-head">
@@ -294,63 +336,6 @@ const DASHBOARD_HTML = `
         <div class="chart-panel" data-panel="value">
           <div style="font-size:10px;color:var(--text-mute);letter-spacing:0.04em;margin-bottom:10px;text-transform:uppercase;font-weight:700;">LKR · excl. Morphed outlier</div>
           <div class="stage-value" id="stageValue">${overview.stageValueHtml}</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">Pipeline Composition</div>
-          <div class="card-badge">by count</div>
-        </div>
-        <div class="donut-wrap">
-          <svg class="donut-svg" width="230" height="230" viewBox="0 0 230 230">
-            <g id="donut" transform="translate(115 115)">${overview.donutPathsHtml}</g>
-            <text x="115" y="106" text-anchor="middle" fill="currentColor" style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;">Total</text>
-            <text id="donutTotal" x="115" y="134" text-anchor="middle" fill="currentColor" style="font-family:'Century Gothic', sans-serif;font-size:34px;font-weight:700;">${overview.donutTotal}</text>
-          </svg>
-          <div class="donut-legend" id="donutLegend">${overview.donutLegendHtml}</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row" style="grid-template-columns: 1fr;">
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">Deal Stages by Source</div>
-          <div class="card-badge">count · by acquisition channel</div>
-        </div>
-        <div id="sourceChart" class="source-chart">${overview.sourceChartHtml}</div>
-        <div id="sourceLegend" class="source-legend">${overview.sourceLegendHtml}</div>
-      </div>
-
-    </div>
-
-    <div class="row" style="grid-template-columns: 1fr;">
-
-      <div class="card" style="padding: 0; overflow: hidden;">
-        <div class="card-head" style="padding: 18px 20px 0; margin-bottom: 12px;">
-          <div class="card-title">Deals by Stage Breakdown</div>
-        </div>
-        <div class="table-wrap">
-          <table class="stage-breakdown-table">
-            <colgroup>
-              <col class="sb-chev"/>
-              <col class="sb-stage"/>
-              <col class="sb-count"/>
-              <col class="sb-value"/>
-            </colgroup>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Stage</th>
-                <th>Deals</th>
-                <th>Value (LKR)</th>
-              </tr>
-            </thead>
-            <tbody id="stageBreakdownBody">${overview.stageBreakdownHtml}</tbody>
-          </table>
         </div>
       </div>
 

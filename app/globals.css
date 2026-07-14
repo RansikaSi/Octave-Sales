@@ -1555,29 +1555,6 @@ body::after {
 .source-legend .legend-dot { width: 9px; height: 9px; border-radius: 2px; }
 .source-legend .legend-name { color: var(--text-dim); margin-left: 0; }
 
-/* ============ DONUT ============ */
-.donut-wrap {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 8px 0;
-  flex-wrap: wrap;
-}
-.donut-svg { flex-shrink: 0; width: 230px; height: 230px; max-width: 100%; }
-@media (max-width: 1100px) {
-  .donut-svg { width: 180px; height: 180px; }
-}
-.donut-legend {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  flex: 1;
-  min-width: 0;
-}
-.donut-legend .legend-row { font-size: 12px; gap: 10px; }
-.donut-legend .legend-dot { width: 11px; height: 11px; }
-.donut-legend .legend-val { font-size: 13px; }
-
 .legend-row { display: flex; align-items: center; gap: 9px; font-size: 11px; }
 .legend-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
 .legend-name {
