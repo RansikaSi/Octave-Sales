@@ -483,10 +483,21 @@
       "close": "2026-07-08",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 39459902972,
+      "name": "Sentinal ",
+      "co": "Citizens Development Business Finance PLC",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-07-12",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 11,
+    "Inquiry": 12,
     "Exploration": 0,
     "POC/Demo": 10,
     "Proposal": 0,
@@ -495,7 +506,7 @@
     "Lost": 1,
     "Morphed": 17
   },
-  "dealTotal": 44,
+  "dealTotal": 45,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -842,7 +853,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Waiting for POC discussion to conclude to begin the rollout. Expected POC is end July/Beginning of August",
+      "next": "Commercial negotiations are under way to close the POC",
       "status": "To Start"
     },
     {
@@ -856,7 +867,7 @@
       "planned": 40,
       "actual": "TBC",
       "next": "Scoping questions shared with Hidramani team - awaiting response. \r\nAwaiting confirmation on proposed date for Vavuniya Visit ",
-      "status": "To Start"
+      "status": "TBC"
     },
     {
       "client": "INSEE Cement",
@@ -894,8 +905,8 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Presented to Paul",
-      "status": "TBC"
+      "next": "Presentation to be made to AIA, Fiarfirst etc.",
+      "status": "To Start"
     },
     {
       "client": "SFSA",
@@ -920,7 +931,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Scoping questions to be shared with JF&I Planning Team ",
+      "next": "POC scoping to begin and disussion with the leadership on next steps",
       "status": "TBC"
     },
     {
@@ -1177,8 +1188,8 @@
     },
     {
       "account": "ALFT Packaging",
-      "name": null,
-      "designation": null,
+      "name": "Jayamal Siriwardana",
+      "designation": "Director Marketing",
       "email": null
     },
     {
@@ -1191,6 +1202,12 @@
       "account": "Ceylinco Life",
       "name": "Samitha Hemachandra",
       "designation": "GM - Marketing",
+      "email": null
+    },
+    {
+      "account": "Citizens Development Business Finance PLC",
+      "name": "Kathiravel Sivagar",
+      "designation": "Head of AI",
       "email": null
     }
   ],
@@ -1205,39 +1222,39 @@
         "notes": ""
       },
       {
-        "week": "Week 25",
-        "current": "1",
-        "newLeads": "0",
-        "active": "1",
-        "lost": "0",
-        "notes": "Active Lead - JF&I - Meeting w/ Planning Team"
-      },
-      {
         "week": "Week 26",
         "current": "2",
         "newLeads": "1",
         "active": "0",
         "lost": "0",
         "notes": "New Lead - AKBAR Brothers - New Lead"
+      },
+      {
+        "week": "week 27",
+        "current": "3",
+        "newLeads": "1",
+        "active": "",
+        "lost": "",
+        "notes": "New Lead - ALFT Packaging & Printing"
       }
     ],
     "thisWeek": [
       {
-        "week": "Week 27",
-        "current": "3",
-        "newLeads": "1",
+        "week": "Week 28",
+        "current": "6",
+        "newLeads": "3",
         "active": "0",
         "lost": "0",
-        "notes": "New Lead - ALFT Packaging & Printing"
+        "notes": "Current Leads - ALFT, Akbar Brothers, Sunshine Holdings\r\nNew Leads - David Peiris, DIMO, CDB"
       }
     ],
     "nextWeek": [
       {
-        "week": "Week 28",
+        "week": "Week 29",
         "target": "12",
         "notes": "Target Accounts"
       }
     ]
   },
-  "updatedAt": "2026-07-14T11:16:30.728Z"
+  "updatedAt": "2026-07-15T03:22:50.739Z"
 }
