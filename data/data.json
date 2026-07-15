@@ -1242,10 +1242,10 @@
       {
         "week": "Week 28",
         "current": "6",
-        "newLeads": "3",
+        "newLeads": "1",
         "active": "0",
         "lost": "0",
-        "notes": "New Leads - David Peiris, DIMO, CDB"
+        "notes": "New Leads - CDB"
       }
     ],
     "nextWeek": [
@@ -1256,5 +1256,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-15T03:25:42.181Z"
+  "updatedAt": "2026-07-15T03:30:57.460Z"
 }
