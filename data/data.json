@@ -531,7 +531,7 @@
       "total": 35
     },
     "Q2-2026": {
-      "Inquiry": 10,
+      "Inquiry": 13,
       "Exploration": 0,
       "POC/Demo": 10,
       "Proposal": 0,
@@ -539,7 +539,7 @@
       "Contracted": 5,
       "Lost": 1,
       "Morphed": 17,
-      "total": 43
+      "total": 46
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -759,7 +759,7 @@
       },
       {
         "name": "Cold Calling",
-        "accounts": 0,
+        "accounts": 10,
         "contacted": 0,
         "replies": 0,
         "positive": 0
@@ -1273,5 +1273,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-16T10:12:14.871Z"
+  "updatedAt": "2026-07-16T10:24:32.217Z"
 }
