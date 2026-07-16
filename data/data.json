@@ -301,10 +301,10 @@
       "id": 35264823462,
       "name": "AA Roadmap",
       "co": "Hemas PLC",
-      "stage": "Morphed",
+      "stage": "Exploration",
       "source": "Direct",
-      "value": 42570000,
-      "close": "2025-03-30",
+      "value": 0,
+      "close": "2026-07-12",
       "won": false,
       "lost": false
     },
@@ -509,13 +509,13 @@
   ],
   "dealStageCounts": {
     "Inquiry": 13,
-    "Exploration": 0,
+    "Exploration": 1,
     "POC/Demo": 10,
     "Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
-    "Morphed": 17
+    "Morphed": 16
   },
   "dealTotal": 46,
   "stagesByQuarter": {
@@ -603,7 +603,7 @@
       "revQtdTarget": 75,
       "revQtdCurrent": 5,
       "newClientsTarget": 3,
-      "newClientsCurrent": 2,
+      "newClientsCurrent": 13,
       "closedDealsTarget": 5,
       "closedDealsCurrent": 1,
       "billedQtdTarget": 37.5,
@@ -758,7 +758,7 @@
         "positive": 0
       },
       {
-        "name": "Cold Calling",
+        "name": "Direct ",
         "accounts": 0,
         "contacted": 0,
         "replies": 0,
@@ -1273,5 +1273,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-16T11:18:10.298Z"
+  "updatedAt": "2026-07-16T11:21:22.275Z"
 }
