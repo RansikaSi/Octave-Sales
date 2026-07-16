@@ -759,10 +759,10 @@
       },
       {
         "name": "Cold Calling",
-        "accounts": 10,
+        "accounts": 0,
         "contacted": 0,
         "replies": 0,
-        "positive": 0
+        "positive": 10
       }
     ],
     "Q3-2026": [
@@ -1273,5 +1273,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-16T10:24:32.217Z"
+  "updatedAt": "2026-07-16T10:27:19.629Z"
 }
