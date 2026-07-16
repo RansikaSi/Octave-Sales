@@ -494,10 +494,21 @@
       "close": "2026-07-12",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 39327802971,
+      "name": "TBC",
+      "co": "AIA Malaysia ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-07-14",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 12,
+    "Inquiry": 13,
     "Exploration": 0,
     "POC/Demo": 10,
     "Proposal": 0,
@@ -506,7 +517,7 @@
     "Lost": 1,
     "Morphed": 17
   },
-  "dealTotal": 45,
+  "dealTotal": 46,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -1067,7 +1078,7 @@
       "opportunities": "1",
       "engagements": [
         {
-          "name": "Not confirmed",
+          "name": "Confirmed",
           "value": null
         }
       ],
@@ -1160,7 +1171,7 @@
       "account": "Akbar Brothers",
       "name": "Huzefa Akbarally",
       "designation": "Executive Director",
-      "email": "—"
+      "email": null
     },
     {
       "account": "DIMO",
@@ -1209,6 +1220,12 @@
       "name": "Kathiravel Sivagar",
       "designation": "Head of AI",
       "email": null
+    },
+    {
+      "account": "AIA Malaysia",
+      "name": "Umeshi de Fonseka",
+      "designation": "Director Transformation Office & Planning",
+      "email": null
     }
   ],
   "leadGenWeekly": {
@@ -1242,10 +1259,10 @@
       {
         "week": "Week 28",
         "current": "6",
-        "newLeads": "1",
+        "newLeads": "3",
         "active": "0",
         "lost": "0",
-        "notes": "New Leads - CDB"
+        "notes": "Current Leads - ALFT, Akbar Brothers, Sunshine Holdings\r\nNew Leads - David Peiris, DIMO, CDB"
       }
     ],
     "nextWeek": [
@@ -1256,5 +1273,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-15T03:30:57.460Z"
+  "updatedAt": "2026-07-16T10:12:14.871Z"
 }
