@@ -486,9 +486,9 @@
     },
     {
       "id": 39459902972,
-      "name": "Sentinal ",
+      "name": "Sentinal & Next Best Offer",
       "co": "Citizens Development Business Finance PLC",
-      "stage": "Inquiry",
+      "stage": "Exploration",
       "source": "Direct ",
       "value": 0,
       "close": "2026-07-12",
@@ -516,30 +516,19 @@
       "close": "2026-07-21",
       "won": false,
       "lost": false
-    },
-    {
-      "id": 39327802975,
-      "name": "Distributer Profitability ",
-      "co": "INSEE Cement ",
-      "stage": "POC/Demo",
-      "source": "Direct ",
-      "value": 0,
-      "close": "2026-07-21",
-      "won": false,
-      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 13,
-    "Exploration": 2,
-    "POC/Demo": 11,
+    "Inquiry": 12,
+    "Exploration": 3,
+    "POC/Demo": 10,
     "Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
     "Morphed": 16
   },
-  "dealTotal": 48,
+  "dealTotal": 47,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -553,15 +542,15 @@
       "total": 35
     },
     "Q2-2026": {
-      "Inquiry": 13,
-      "Exploration": 2,
-      "POC/Demo": 11,
+      "Inquiry": 12,
+      "Exploration": 3,
+      "POC/Demo": 10,
       "Proposal": 0,
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
       "Morphed": 16,
-      "total": 48
+      "total": 47
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -1297,25 +1286,33 @@
         "active": "",
         "lost": "",
         "notes": "New Lead - ALFT Packaging & Printing"
-      }
-    ],
-    "thisWeek": [
+      },
       {
         "week": "Week 28",
         "current": "6",
         "newLeads": "3",
         "active": "0",
         "lost": "0",
-        "notes": "Current Leads - ALFT, Akbar Brothers, Sunshine Holdings\r\nNew Leads - David Peiris, DIMO, CDB"
+        "notes": "Current Leads - ALFT, Akbar Brothers, Sunshine Holdings, New Leads - David Peiris, DIMO, CDB"
+      }
+    ],
+    "thisWeek": [
+      {
+        "week": "Week 29",
+        "current": "9",
+        "newLeads": "3",
+        "active": "0",
+        "lost": "0",
+        "notes": "Current Leads -\r\nNew Leads - Dilmah, Rockland, Spa Ceylon"
       }
     ],
     "nextWeek": [
       {
-        "week": "Week 29",
+        "week": "Week 30",
         "target": "12",
         "notes": "Target Accounts"
       }
     ]
   },
-  "updatedAt": "2026-07-22T08:43:00.252Z"
+  "updatedAt": "2026-07-22T10:07:22.899Z"
 }
