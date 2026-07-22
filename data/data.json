@@ -505,22 +505,11 @@
       "close": "2026-07-14",
       "won": false,
       "lost": false
-    },
-    {
-      "id": 39327802973,
-      "name": "Transaction Anomaly Detection & Next Best Offer",
-      "co": "CDB",
-      "stage": "Exploration",
-      "source": "Direct ",
-      "value": 0,
-      "close": "2026-07-21",
-      "won": false,
-      "lost": false
     }
   ],
   "dealStageCounts": {
     "Inquiry": 12,
-    "Exploration": 3,
+    "Exploration": 2,
     "POC/Demo": 10,
     "Proposal": 0,
     "Negotiations": 0,
@@ -528,7 +517,7 @@
     "Lost": 1,
     "Morphed": 16
   },
-  "dealTotal": 47,
+  "dealTotal": 46,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -543,14 +532,14 @@
     },
     "Q2-2026": {
       "Inquiry": 12,
-      "Exploration": 3,
+      "Exploration": 2,
       "POC/Demo": 10,
       "Proposal": 0,
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
       "Morphed": 16,
-      "total": 47
+      "total": 46
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -1314,5 +1303,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-22T10:07:22.899Z"
+  "updatedAt": "2026-07-22T10:44:10.080Z"
 }
