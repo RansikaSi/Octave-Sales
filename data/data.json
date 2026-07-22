@@ -505,19 +505,41 @@
       "close": "2026-07-14",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 39327802973,
+      "name": "Transaction Anomaly Detection & Next Best Offer",
+      "co": "CDB",
+      "stage": "Exploration",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-07-21",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 39327802975,
+      "name": "Distributer Profitability ",
+      "co": "INSEE Cement ",
+      "stage": "POC/Demo",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-07-21",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
     "Inquiry": 13,
-    "Exploration": 1,
-    "POC/Demo": 10,
+    "Exploration": 2,
+    "POC/Demo": 11,
     "Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
     "Morphed": 16
   },
-  "dealTotal": 46,
+  "dealTotal": 48,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -532,14 +554,14 @@
     },
     "Q2-2026": {
       "Inquiry": 13,
-      "Exploration": 0,
-      "POC/Demo": 10,
+      "Exploration": 2,
+      "POC/Demo": 11,
       "Proposal": 0,
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
-      "Morphed": 17,
-      "total": 46
+      "Morphed": 16,
+      "total": 48
     },
     "Q3-2026": {
       "Inquiry": 0,
@@ -1164,6 +1186,28 @@
         }
       ],
       "section": "Active"
+    },
+    {
+      "name": "Mawkish Technologies",
+      "region": "Sri Lanka",
+      "status": "New",
+      "opportunities": "N/A",
+      "engagements": [
+        {
+          "name": "Not confirmed",
+          "value": null
+        }
+      ],
+      "total": null,
+      "contacts": [
+        {
+          "role": "Primary Contact",
+          "name": "TBC",
+          "mobile": "",
+          "email": ""
+        }
+      ],
+      "section": "Pending"
     }
   ],
   "positiveInquiries": [
@@ -1273,5 +1317,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-16T11:21:22.275Z"
+  "updatedAt": "2026-07-22T08:43:00.252Z"
 }
