@@ -1316,8 +1316,8 @@
     },
     {
       "account": "Lion Brewery",
-      "name": null,
-      "designation": null,
+      "name": "Ruvendra Gunasena",
+      "designation": "Chief Information Officer",
       "email": null
     },
     {
@@ -1334,8 +1334,8 @@
     },
     {
       "account": "Seylan Bank",
-      "name": null,
-      "designation": null,
+      "name": "Asiri Abhayaratne",
+      "designation": "Assistant General Manager - Marketing & Sales",
       "email": null
     },
     {
@@ -1438,5 +1438,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-31T08:26:22.816Z"
+  "updatedAt": "2026-07-31T08:44:28.221Z"
 }
