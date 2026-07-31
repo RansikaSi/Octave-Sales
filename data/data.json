@@ -309,28 +309,6 @@
       "lost": false
     },
     {
-      "id": 35564823462,
-      "name": "LegalPulse",
-      "co": "OCTAVE",
-      "stage": "POC/Demo",
-      "source": "Direct",
-      "value": 16500000,
-      "close": "2026-06-10",
-      "won": false,
-      "lost": false
-    },
-    {
-      "id": 39727802971,
-      "name": "MMM ",
-      "co": "OCTAVE",
-      "stage": "POC/Demo",
-      "source": "Direct",
-      "value": 5,
-      "close": "2026-06-09",
-      "won": false,
-      "lost": false
-    },
-    {
       "id": 39450802972,
       "name": "Personalized Recommendation Engine",
       "co": "NagaWorld",
@@ -338,17 +316,6 @@
       "source": "Partner",
       "value": 0,
       "close": "2026-06-15",
-      "won": false,
-      "lost": false
-    },
-    {
-      "id": 40775771241,
-      "name": "Deal Forger ",
-      "co": "OCTAVE",
-      "stage": "POC/Demo",
-      "source": "Direct",
-      "value": 0,
-      "close": "2026-06-10",
       "won": false,
       "lost": false
     },
@@ -510,14 +477,14 @@
   "dealStageCounts": {
     "Inquiry": 10,
     "Exploration": 6,
-    "POC/Demo": 8,
+    "POC/Demo": 5,
     "Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
     "Morphed": 16
   },
-  "dealTotal": 46,
+  "dealTotal": 43,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -1438,5 +1405,5 @@
       }
     ]
   },
-  "updatedAt": "2026-07-31T08:44:28.221Z"
+  "updatedAt": "2026-07-31T08:58:02.593Z"
 }
