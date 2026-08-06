@@ -458,7 +458,7 @@
       "stage": "Inquiry",
       "source": "Direct ",
       "value": 0,
-      "close": "2026-07-14",
+      "close": "2026-08-04",
       "won": false,
       "lost": false
     },
@@ -472,10 +472,98 @@
       "close": "2026-07-30",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 39327802976,
+      "name": "Sentinal ",
+      "co": "Seylan",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 49327802976,
+      "name": "TBC",
+      "co": "Spa Ceylon ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 45627802976,
+      "name": "Sentinal ",
+      "co": "DFCC Bank ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78978029768,
+      "name": "Sentinal ",
+      "co": "BPPL ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 29300802976,
+      "name": "Sentinal ",
+      "co": "Commercial Bank",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 29327123976,
+      "name": "Sentinal ",
+      "co": "Hatton National Bank ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 84527802976,
+      "name": "TBC",
+      "co": "Rockland ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Lion Brewery ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-08-04",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 10,
+    "Inquiry": 18,
     "Exploration": 4,
     "POC/Demo": 5,
     "Proposal": 2,
@@ -484,7 +572,7 @@
     "Lost": 1,
     "Morphed": 16
   },
-  "dealTotal": 43,
+  "dealTotal": 51,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -566,7 +654,7 @@
     "Q2-2026": {
       "displayLabel": "Q2 2026 (July – Sep)",
       "lastUpdated": "08 Jul 2026",
-      "totalDeals": 42,
+      "totalDeals": 34,
       "revQtdTarget": 75,
       "revQtdCurrent": 5,
       "newClientsTarget": 3,
@@ -729,7 +817,7 @@
         "accounts": 0,
         "contacted": 0,
         "replies": 0,
-        "positive": 10
+        "positive": 0
       }
     ],
     "Q3-2026": [
@@ -1334,5 +1422,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-06T08:06:34.055Z"
+  "updatedAt": "2026-08-06T08:13:07.414Z"
 }
