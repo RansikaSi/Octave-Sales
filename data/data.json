@@ -366,8 +366,8 @@
     {
       "id": 37275602971,
       "name": "TAX RFP",
-      "co": "JKH PLC",
-      "stage": "Exploration",
+      "co": "JKH PLC - compliance",
+      "stage": "Proposal",
       "source": "Direct",
       "value": 0,
       "close": "2026-06-15",
@@ -377,8 +377,8 @@
     {
       "id": 38727802971,
       "name": "Complience RFP",
-      "co": "JKH PLC",
-      "stage": "Exploration",
+      "co": "JKH PLC - TAX",
+      "stage": "Proposal",
       "source": "Direct",
       "value": 0,
       "close": "2026-07-08",
@@ -476,9 +476,9 @@
   ],
   "dealStageCounts": {
     "Inquiry": 10,
-    "Exploration": 6,
+    "Exploration": 4,
     "POC/Demo": 5,
-    "Proposal": 0,
+    "Proposal": 2,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
@@ -589,8 +589,8 @@
       "newClientsMtdTarget": 1,
       "closedDealsMtdTarget": 2,
       "billedMtdTarget": 12.5,
-      "accountsTarget": 120,
-      "contactedTarget": 240,
+      "accountsTarget": 17,
+      "contactedTarget": 23,
       "repliesTarget": 48,
       "positiveTarget": 36
     },
@@ -831,7 +831,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Commercial negotiations are under way to close the POC",
+      "next": "Apollo to confrim on the WBS and the roles and responisiblities. ",
       "status": "To Start"
     },
     {
@@ -1032,7 +1032,12 @@
       "region": "",
       "status": "On board",
       "opportunities": "",
-      "engagements": [],
+      "engagements": [
+        {
+          "name": "Parked",
+          "value": null
+        }
+      ],
       "total": null,
       "contacts": [],
       "section": "Active"
@@ -1120,28 +1125,6 @@
       "section": "Active"
     },
     {
-      "name": "DragonFly Business",
-      "region": "UK",
-      "status": "New",
-      "opportunities": "N/A",
-      "engagements": [
-        {
-          "name": "Not confirmed",
-          "value": null
-        }
-      ],
-      "total": null,
-      "contacts": [
-        {
-          "role": "Primary Contact",
-          "name": "Ayan Mookerjee",
-          "mobile": "+971 (0)5857 95960",
-          "email": "Ayan.Mookerjee@dragonflybusiness.co.uk"
-        }
-      ],
-      "section": "Pending"
-    },
-    {
       "name": "TBC",
       "region": "India",
       "status": "New",
@@ -1186,7 +1169,7 @@
       "section": "Active"
     },
     {
-      "name": "AGI",
+      "name": "John Keells IT",
       "region": "Dubai",
       "status": "New",
       "opportunities": "1",
@@ -1258,12 +1241,6 @@
       "email": null
     },
     {
-      "account": "Citizens Development Business Finance PLC",
-      "name": "Kathiravel Sivagar",
-      "designation": "Head of AI",
-      "email": null
-    },
-    {
       "account": "AIA Malaysia",
       "name": "Umeshi de Fonseka",
       "designation": "Director Transformation Office & Planning",
@@ -1306,70 +1283,14 @@
       "email": null
     },
     {
-      "account": "Independent Consultant",
-      "name": "Fulvio Manente",
-      "designation": "Artificial Intelligence Consultant",
-      "email": null
-    },
-    {
-      "account": "Etain",
-      "name": "Ashish Umre",
-      "designation": "Global Head of AI & Data Science",
-      "email": null
-    },
-    {
-      "account": "AJ Solutions",
-      "name": "Jim Dickson",
-      "designation": "Senior Retail Consultant",
-      "email": null
-    },
-    {
-      "account": "Retail Technology Innovation Hub",
-      "name": "Martin (Williams) Bailie",
-      "designation": "Independent Consultant",
-      "email": null
-    },
-    {
-      "account": "Novicera",
-      "name": "Genco Divrikli",
-      "designation": "Managing Partner",
-      "email": null
-    },
-    {
-      "account": "Tesco",
-      "name": "Harjeet Kumar Rajpal",
-      "designation": "Group Head of Engineering - Forecasting and data",
-      "email": null
-    },
-    {
-      "account": "Freelance",
-      "name": "Brett Britton",
-      "designation": "Senior Retail Technology Consultant\r\nAI Strategy & Transformation Consultant B2AI Business Consultant",
-      "email": null
-    },
-    {
-      "account": "Future Advisory Board AI Retain retail",
-      "name": "Sofie Perslow",
-      "designation": "Advisor",
-      "email": null
-    },
-    {
-      "account": "Ogden Consulting Ltd.",
-      "name": "Mike Ogden",
-      "designation": "Managing Director",
+      "account": "Spa Ceylon",
+      "name": "Shewantha Dias",
+      "designation": "Managing Director Co-Founder",
       "email": null
     }
   ],
   "leadGenWeekly": {
     "last3": [
-      {
-        "week": "week 27",
-        "current": "3",
-        "newLeads": "1",
-        "active": "",
-        "lost": "",
-        "notes": "New Lead - ALFT Packaging & Printing"
-      },
       {
         "week": "Week 28",
         "current": "6",
@@ -1385,25 +1306,33 @@
         "active": "0",
         "lost": "0",
         "notes": "Current Leads - \r\nNew Leads -\r\nDilmah, Rockland, Spa Ceylon"
-      }
-    ],
-    "thisWeek": [
+      },
       {
         "week": "Week 30",
-        "current": "9",
+        "current": "10",
         "newLeads": "1",
         "active": "1",
         "lost": "0",
         "notes": "Seylan Bank"
       }
     ],
-    "nextWeek": [
+    "thisWeek": [
       {
         "week": "Week 31",
+        "current": "15",
+        "newLeads": "5",
+        "active": "5",
+        "lost": "0",
+        "notes": "Commercial Bank, DFCC, HNB, BPPL, AIA Malaysia"
+      }
+    ],
+    "nextWeek": [
+      {
+        "week": "Week 32",
         "target": "12",
         "notes": "Target Accounts"
       }
     ]
   },
-  "updatedAt": "2026-07-31T08:58:02.593Z"
+  "updatedAt": "2026-08-06T07:48:06.525Z"
 }
