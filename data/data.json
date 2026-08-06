@@ -35,12 +35,12 @@
     },
     {
       "id": 57452177751,
-      "name": "AA Roadmap",
+      "name": "Sentinal ",
       "co": "DFCC Bank PLC ",
-      "stage": "Morphed",
+      "stage": "Inquiry",
       "source": "Direct",
-      "value": 33000000,
-      "close": "2026-03-30",
+      "value": 0,
+      "close": "2026-08-04",
       "won": false,
       "lost": true
     },
@@ -255,12 +255,12 @@
     },
     {
       "id": 39703758257,
-      "name": "AA Roadmap",
+      "name": "TBC",
       "co": "Spa Ceylon",
-      "stage": "Morphed",
+      "stage": "Inquiry",
       "source": "Direct",
-      "value": 16500000,
-      "close": "2026-03-03",
+      "value": 0,
+      "close": "2026-08-04",
       "won": false,
       "lost": true
     },
@@ -485,28 +485,6 @@
       "lost": false
     },
     {
-      "id": 49327802976,
-      "name": "TBC",
-      "co": "Spa Ceylon ",
-      "stage": "Inquiry",
-      "source": "Direct ",
-      "value": 0,
-      "close": "2026-08-04",
-      "won": false,
-      "lost": false
-    },
-    {
-      "id": 45627802976,
-      "name": "Sentinal ",
-      "co": "DFCC Bank ",
-      "stage": "Inquiry",
-      "source": "Direct ",
-      "value": 0,
-      "close": "2026-08-04",
-      "won": false,
-      "lost": false
-    },
-    {
       "id": 78978029768,
       "name": "Sentinal ",
       "co": "BPPL ",
@@ -570,9 +548,9 @@
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
-    "Morphed": 16
+    "Morphed": 14
   },
-  "dealTotal": 51,
+  "dealTotal": 49,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -1422,5 +1400,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-06T08:13:07.414Z"
+  "updatedAt": "2026-08-06T08:19:14.319Z"
 }
