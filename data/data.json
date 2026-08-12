@@ -898,7 +898,7 @@
       "planned": 60,
       "actual": "TBC",
       "next": "Daily stand ups with Apollo Team and Week 0 activities commenced on 11-Aug and official project kick-off scheduled for 1st week Sep",
-      "status": "To Start"
+      "status": "Ongoing"
     },
     {
       "client": "Hirdaramani",
@@ -937,19 +937,6 @@
       "planned": "TBC",
       "actual": "TBC",
       "next": "RFP Response submitted on 25th May currently awaiting NTB's review and feedback.",
-      "status": "TBC"
-    },
-    {
-      "client": "SFSA",
-      "project": "Legal Pulse",
-      "type": "POC",
-      "value": "LKR 5,000,000",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": "TBC",
-      "actual": "TBC",
-      "next": "Received feedback from potential customers on the tool",
       "status": "TBC"
     },
     {
@@ -1274,12 +1261,6 @@
       "email": "Direct"
     },
     {
-      "account": "Mawkish Technologies",
-      "name": "Hathim Malick",
-      "designation": "Founder, Director",
-      "email": "Direct"
-    },
-    {
       "account": "Rockland",
       "name": "Yachintha Piyadasaa",
       "designation": "CIO",
@@ -1361,5 +1342,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-12T03:04:30.749Z"
+  "updatedAt": "2026-08-12T03:10:22.929Z"
 }
