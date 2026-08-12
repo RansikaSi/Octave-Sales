@@ -378,7 +378,7 @@
       "id": 38727802971,
       "name": "Complience RFP",
       "co": "JKH PLC - TAX",
-      "stage": "Proposal",
+      "stage": "POC/Demo",
       "source": "Direct",
       "value": 0,
       "close": "2026-07-08",
@@ -444,7 +444,7 @@
       "id": 39459902972,
       "name": "Sentinal ",
       "co": "Citizens Development Business Finance PLC",
-      "stage": "Exploration",
+      "stage": "POC Proposal",
       "source": "Direct ",
       "value": 0,
       "close": "2026-07-12",
@@ -532,7 +532,7 @@
       "id": 78957802976,
       "name": "TBC",
       "co": "Lion Brewery ",
-      "stage": "Inquiry",
+      "stage": "Morphed",
       "source": "Direct ",
       "value": 0,
       "close": "2026-08-04",
@@ -541,14 +541,14 @@
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 18,
-    "Exploration": 4,
-    "POC/Demo": 5,
-    "Proposal": 2,
+    "Inquiry": 17,
+    "Exploration": 3,
+    "POC/Demo": 6,
+    "Proposal": 1,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
-    "Morphed": 14
+    "Morphed": 15
   },
   "dealTotal": 49,
   "stagesByQuarter": {
@@ -655,8 +655,8 @@
       "newClientsMtdTarget": 1,
       "closedDealsMtdTarget": 2,
       "billedMtdTarget": 12.5,
-      "accountsTarget": 17,
-      "contactedTarget": 23,
+      "accountsTarget": 120,
+      "contactedTarget": 240,
       "repliesTarget": 48,
       "positiveTarget": 36
     },
@@ -778,24 +778,24 @@
       },
       {
         "name": "Events/Conf.",
-        "accounts": 0,
-        "contacted": 0,
+        "accounts": 2,
+        "contacted": 2,
         "replies": 0,
-        "positive": 0
+        "positive": 2
       },
       {
         "name": "Referrals",
-        "accounts": 0,
-        "contacted": 0,
+        "accounts": 1,
+        "contacted": 1,
         "replies": 0,
-        "positive": 0
+        "positive": 1
       },
       {
         "name": "Direct ",
-        "accounts": 0,
-        "contacted": 0,
+        "accounts": 14,
+        "contacted": 14,
         "replies": 0,
-        "positive": 0
+        "positive": 14
       }
     ],
     "Q3-2026": [
@@ -828,7 +828,7 @@
         "positive": 0
       },
       {
-        "name": "Cold Calling",
+        "name": "Direct ",
         "accounts": 0,
         "contacted": 0,
         "replies": 0,
@@ -865,7 +865,7 @@
         "positive": 0
       },
       {
-        "name": "Cold Calling",
+        "name": "Direct ",
         "accounts": 0,
         "contacted": 0,
         "replies": 0,
@@ -884,7 +884,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "MAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials",
+      "next": "App isssue resolved on 11-Aug\r\nMAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials",
       "status": "Ongoing"
     },
     {
@@ -897,7 +897,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Apollo to confrim on the WBS and the roles and responisiblities. ",
+      "next": "Daily stand ups with Apollo Team and Week 0 activities commenced on 11-Aug and official project kick-off scheduled for 1st week Sep",
       "status": "To Start"
     },
     {
@@ -923,7 +923,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Awaiting confirmation on meeting time with INSEE CEO",
+      "next": "Confirmed appointment with CEO - 18th  August ",
       "status": "To Start"
     },
     {
@@ -938,19 +938,6 @@
       "actual": "TBC",
       "next": "RFP Response submitted on 25th May currently awaiting NTB's review and feedback.",
       "status": "TBC"
-    },
-    {
-      "client": "OCTAVE",
-      "project": "MMM",
-      "type": "POC",
-      "value": " - ",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": "TBC",
-      "actual": "TBC",
-      "next": "Presentation to be made to AIA, Fiarfirst etc.",
-      "status": "To Start"
     },
     {
       "client": "SFSA",
@@ -979,19 +966,6 @@
       "status": "TBC"
     },
     {
-      "client": "SFSA",
-      "project": "Deal Forger",
-      "type": "POC",
-      "value": "LKR 5,000,000",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": "TBC",
-      "actual": "TBC",
-      "next": "POC / Demo discussion completed - next steps is to build the MVP to move the same way as Legal pulse",
-      "status": "TBC"
-    },
-    {
       "client": "JKH",
       "project": "Tax AI Agent",
       "type": "TBC",
@@ -1001,20 +975,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Demo planned with senior leadershio week starting 3-Jul",
-      "status": "TBC"
-    },
-    {
-      "client": "JKH",
-      "project": "Compliance Monitoring System",
-      "type": "TBC",
-      "value": "LKR 2,470,000",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": "TBC",
-      "actual": "TBC",
-      "next": "Submitted RFP 30-Jul",
+      "next": "Demo presented. Need to get a reference tax document to build a MVP and conduct a workshop with the tax team to fine tune user journeys for selected roles. ",
       "status": "TBC"
     }
   ],
@@ -1262,109 +1223,101 @@
       "account": "Akbar Brothers",
       "name": "Huzefa Akbarally",
       "designation": "Executive Director",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "DIMO",
       "name": "Rajeev Pandithage",
       "designation": "Executive Director",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "David Peries",
       "name": "Jayaraj Sayanthan",
       "designation": "Group CIO",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "AIA Insurance",
       "name": "Dilshan Rabbie",
       "designation": "Senior Manager - Digital and Brand engagement",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Sunshine Holdings",
       "name": "Nadina Fernando",
       "designation": "General Manager - Marketing",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "ALFT Packaging",
       "name": "Jayamal Siriwardana",
       "designation": "Director Marketing",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Fairfirst Insurance",
       "name": "Clement Fernandopulle",
       "designation": "Group CIO",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Ceylinco Life",
       "name": "Samitha Hemachandra",
       "designation": "GM - Marketing",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "AIA Malaysia",
       "name": "Umeshi de Fonseka",
       "designation": "Director Transformation Office & Planning",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Mawkish Technologies",
       "name": "Hathim Malick",
       "designation": "Founder, Director",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Rockland",
       "name": "Yachintha Piyadasaa",
       "designation": "CIO",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Lion Brewery",
       "name": "Ruvendra Gunasena",
       "designation": "Chief Information Officer",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "BPPL",
       "name": "Mihira Dadallage",
       "designation": "Manager - ERP Systems",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "HNB",
       "name": "Chandima Cooray",
       "designation": "Chief Innovation Officer",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Seylan Bank",
       "name": "Asiri Abhayaratne",
       "designation": "Assistant General Manager - Marketing & Sales",
-      "email": null
+      "email": "Direct"
     },
     {
       "account": "Spa Ceylon",
       "name": "Shewantha Dias",
       "designation": "Managing Director Co-Founder",
-      "email": null
+      "email": "Direct"
     }
   ],
   "leadGenWeekly": {
     "last3": [
-      {
-        "week": "Week 28",
-        "current": "6",
-        "newLeads": "3",
-        "active": "0",
-        "lost": "0",
-        "notes": "Current Leads - ALFT, Akbar Brothers, Sunshine Holdings\r\nNew Leads - David Peiris, DIMO, CDB"
-      },
       {
         "week": "Week 29",
         "current": "9",
@@ -1380,9 +1333,7 @@
         "active": "1",
         "lost": "0",
         "notes": "Seylan Bank"
-      }
-    ],
-    "thisWeek": [
+      },
       {
         "week": "Week 31",
         "current": "15",
@@ -1390,6 +1341,16 @@
         "active": "5",
         "lost": "0",
         "notes": "Commercial Bank, DFCC, HNB, BPPL, AIA Malaysia"
+      }
+    ],
+    "thisWeek": [
+      {
+        "week": "Week 32",
+        "current": "15",
+        "newLeads": "0",
+        "active": "9",
+        "lost": "1",
+        "notes": ""
       }
     ],
     "nextWeek": [
@@ -1400,5 +1361,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-06T08:26:45.004Z"
+  "updatedAt": "2026-08-12T03:04:30.749Z"
 }
