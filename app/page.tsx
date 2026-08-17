@@ -10,6 +10,7 @@ import {
   buildProjects,
   buildPartners,
   buildLeadGenWeekly,
+  buildWeeklyUpdates,
   buildPositiveInquiries,
   mountBusinessMetrics,
   setupInteractions,
@@ -33,6 +34,7 @@ const bm = initialQuarter ? buildBusinessMetrics(bmDataByQuarter, initialQuarter
 const projects = buildProjects(dashboardData.projects);
 const partners = buildPartners(dashboardData.partners);
 const leadGen = buildLeadGenWeekly(dashboardData.leadGenWeekly);
+const weeklyUpdates = buildWeeklyUpdates(dashboardData.weeklyUpdates);
 const posInqHtml = buildPositiveInquiries(dashboardData.positiveInquiries);
 // Sidebar "Data as of" reflects when this dataset was actually committed via
 // /upload (updatedAt, stamped server-side) — not a per-quarter "Last
@@ -215,6 +217,116 @@ const DASHBOARD_HTML = `
       </div>
     </div>
 
+    <!-- LEAD GENERATION EFFORT -->
+    <div class="leadgen-stack">
+
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div class="card-head" style="padding:18px 20px 0;margin-bottom:14px;">
+          <div class="card-title">This Week's Updates</div>
+        </div>
+
+        <div class="tw-grid">
+
+          <div class="tw-col">
+            <div class="tw-block-label">Reached Out To<span class="tw-count">${weeklyUpdates.outreachCount}</span></div>
+            <div class="tw-list" id="twOutreachList">${weeklyUpdates.outreachHtml}</div>
+          </div>
+
+          <div class="tw-col">
+            <div class="tw-block-label">Pitched To<span class="tw-count">${weeklyUpdates.pitchedCount}</span></div>
+            <div class="tw-list" id="twPitchedList">${weeklyUpdates.pitchedHtml}</div>
+          </div>
+
+          <div class="tw-col">
+            <div class="tw-block-label">Stage Movement<span class="tw-count">${weeklyUpdates.movesCount}</span></div>
+            <div class="tw-list" id="twMovesList">${weeklyUpdates.movesHtml}</div>
+          </div>
+
+          <div class="tw-col tw-col-wide">
+            <div class="tw-block-label">Upcoming Sales Pitches<span class="tw-count">${weeklyUpdates.pitchesCount}</span></div>
+            <div class="tw-list" id="twPitchList">${weeklyUpdates.pitchesHtml}</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div class="card-head" style="padding:18px 20px 0;margin-bottom:14px;">
+          <div class="card-title">Weekly Lead Movement</div>
+        </div>
+        <div class="table-wrap">
+          <table class="leadgen-table lg-timeline">
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Current</th>
+                <th>New</th>
+                <th>Active</th>
+                <th>Morphed</th>
+                <th class="lg-notes">Notes</th>
+              </tr>
+            </thead>
+            <tbody id="lgLast3Body">${leadGen.last3Html}</tbody>
+            <tbody id="lgThisWeekBody" class="lg-current">${leadGen.thisWeekHtml}</tbody>
+          </table>
+        </div>
+
+        <div class="lg-target-band">
+          <div class="lg-target-inner">
+            <div class="lg-target-label">Next Week Target<span class="lg-target-week" id="lgTargetWeek">${leadGen.targetWeek}</span></div>
+            <div class="lg-target-metric">
+              <span class="lg-target-num" id="lgTargetNum">${leadGen.targetNum}</span>
+              <span class="lg-target-unit">target accounts</span>
+            </div>
+            <div class="lg-target-gap" id="lgTargetGap" style="display:none;">${leadGen.targetGapText}</div>
+          </div>
+          <table class="lg-target-table" style="display:none;">
+            <tbody id="lgNextWeekBody">${leadGen.nextWeekHtml}</tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Positive Inquiries list -->
+    <div class="row" style="grid-template-columns: 1fr;">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Positive Inquiries List</div>
+          <div class="card-badge">active conversations</div>
+        </div>
+        <div class="bm-channel-table-wrap">
+          <table class="channel-table pos-inq-table">
+            <colgroup>
+              <col class="pi-account"/>
+              <col class="pi-name"/>
+              <col class="pi-designation"/>
+              <col class="pi-email"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Account</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="posInquiryBody">${posInqHtml}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deals by Stage (snapshot from HubSpot CRM) -->
+    <section class="bm-section">
+      <div class="bm-section-head">
+        <h2 class="bm-section-title">Deals by Stage</h2>
+        <div class="bm-section-badge" id="bmStageBadge">${bm?.stageBadge ?? "snapshot"}</div>
+      </div>
+      <div class="bm-stage-cards" id="bmStageCards">${bm?.stageCardsHtml ?? ""}</div>
+    </section>
+
+    <!-- Deals by Stage Breakdown (full width) -->
     <div class="row" style="grid-template-columns: 1fr;">
 
       <div class="card" style="padding: 0; overflow: hidden;">
@@ -244,6 +356,27 @@ const DASHBOARD_HTML = `
 
     </div>
 
+    <!-- Pipeline Composition (donut) -->
+    <div class="row row-a">
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Pipeline Composition</div>
+          <div class="card-badge">by count</div>
+        </div>
+        <div class="donut-wrap">
+          <svg class="donut-svg" width="230" height="230" viewBox="0 0 230 230">
+            <g id="donut" transform="translate(115 115)">${overview.donutSvgHtml}</g>
+            <text x="115" y="106" text-anchor="middle" fill="currentColor" style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;">Total</text>
+            <text id="donutTotal" x="115" y="134" text-anchor="middle" fill="currentColor" style="font-family:'Century Gothic', sans-serif;font-size:34px;font-weight:700;">${overview.donutTotal}</text>
+          </svg>
+          <div class="donut-legend" id="donutLegend">${overview.donutLegendHtml}</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Deal Stages by Source (full width) -->
     <div class="row" style="grid-template-columns: 1fr;">
 
       <div class="card">
@@ -253,90 +386,6 @@ const DASHBOARD_HTML = `
         </div>
         <div id="sourceChart" class="source-chart">${overview.sourceChartHtml}</div>
         <div id="sourceLegend" class="source-legend">${overview.sourceLegendHtml}</div>
-      </div>
-
-    </div>
-
-    <div class="row" style="grid-template-columns: 1fr; margin-bottom: 6px;">
-      <h2 class="bm-section-title" style="margin-bottom: 0;">Lead Generation Effort</h2>
-    </div>
-    <div class="leadgen-stack">
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">This Week</div>
-        </div>
-        <table class="leadgen-table">
-          <thead>
-            <tr>
-              <th>Week</th>
-              <th>Current Leads</th>
-              <th>This Week New Leads</th>
-              <th>This Week Active Leads</th>
-              <th>This Week Lost Leads</th>
-              <th class="lg-notes">Notes</th>
-            </tr>
-          </thead>
-          <tbody id="lgThisWeekBody">${leadGen.thisWeekHtml}</tbody>
-        </table>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">Next Week</div>
-        </div>
-        <table class="leadgen-table">
-          <thead>
-            <tr>
-              <th>Week</th>
-              <th>New Leads Target</th>
-              <th class="lg-notes">Notes</th>
-            </tr>
-          </thead>
-          <tbody id="lgNextWeekBody">${leadGen.nextWeekHtml}</tbody>
-        </table>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">Last 3 Weeks</div>
-        </div>
-        <table class="leadgen-table">
-          <thead>
-            <tr>
-              <th>Week</th>
-              <th>Current Leads</th>
-              <th>This Week New Leads</th>
-              <th>This Week Active Leads</th>
-              <th>This Week Lost Leads</th>
-              <th class="lg-notes">Notes</th>
-            </tr>
-          </thead>
-          <tbody id="lgLast3Body">${leadGen.last3Html}</tbody>
-        </table>
-      </div>
-
-    </div>
-
-    <div class="row" style="grid-template-columns: 1fr;">
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">Deals by Stage</div>
-          <div class="chart-toggle" role="tablist" aria-label="Toggle between count and value">
-            <button type="button" class="active" data-view="count" role="tab" aria-selected="true">Count</button>
-            <button type="button" data-view="value" role="tab" aria-selected="false">Value</button>
-          </div>
-        </div>
-
-        <div class="chart-panel active" data-panel="count">
-          <div class="funnel" id="funnel">${overview.funnelHtml}</div>
-        </div>
-
-        <div class="chart-panel" data-panel="value">
-          <div style="font-size:10px;color:var(--text-mute);letter-spacing:0.04em;margin-bottom:10px;text-transform:uppercase;font-weight:700;">LKR · excl. Morphed outlier</div>
-          <div class="stage-value" id="stageValue">${overview.stageValueHtml}</div>
-        </div>
       </div>
 
     </div>
@@ -399,14 +448,6 @@ const DASHBOARD_HTML = `
 
       <section class="bm-section">
         <div class="bm-section-head">
-          <h2 class="bm-section-title">Deals by Stage</h2>
-          <div class="bm-section-badge" id="bmStageBadge">${bm?.stageBadge ?? "snapshot"}</div>
-        </div>
-        <div class="bm-stage-cards" id="bmStageCards">${bm?.stageCardsHtml ?? ""}</div>
-      </section>
-
-      <section class="bm-section">
-        <div class="bm-section-head">
           <h2 class="bm-section-title">Lead Generation Performance</h2>
           <div class="bm-section-badge">summed across channels</div>
         </div>
@@ -434,29 +475,6 @@ const DASHBOARD_HTML = `
             </thead>
             <tbody id="channelTableBody">${bm?.channelTableHtml ?? ""}</tbody>
           </table>
-        </div>
-
-        <div class="pos-inq-wrap">
-          <div class="pos-inq-title">Positive Inquiries List</div>
-          <div class="bm-channel-table-wrap">
-            <table class="channel-table pos-inq-table">
-              <colgroup>
-                <col class="pi-account"/>
-                <col class="pi-name"/>
-                <col class="pi-designation"/>
-                <col class="pi-email"/>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Account</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody id="posInquiryBody">${posInqHtml}</tbody>
-            </table>
-          </div>
         </div>
       </section>
 

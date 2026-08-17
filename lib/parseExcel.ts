@@ -19,8 +19,9 @@ export interface Deal {
 export interface StageQuarter {
   Inquiry: number;
   Exploration: number;
+  "POC Proposal": number;
   "POC/Demo": number;
-  Proposal: number;
+  "Final Proposal": number;
   Negotiations: number;
   Contracted: number;
   Lost: number;
@@ -109,7 +110,9 @@ export interface PositiveInquiry {
   account: string | null;
   name: string | null;
   designation: string | null;
-  email: string | null;
+  // Lead-source channel (e.g. "Direct", "Partner", "Referral") — column D of
+  // the sheet holds a source label, not a contact email.
+  source: string | null;
 }
 
 export interface LeadGenWeekRow {
@@ -127,6 +130,29 @@ export interface LeadGenNextWeekRow {
   notes: string;
 }
 
+// "This Week's Updates" sheet — section-labeled layout (col A holds section
+// headers, blank rows separate sections): Reached out to / Pitched to /
+// Stage movement / Upcoming sales pitches.
+export interface WeeklyUpdateMove {
+  name: string;
+  from: string;
+  to: string;
+}
+
+export interface WeeklyUpdatePitch {
+  co: string;
+  person: string;
+  role: string;
+  date: string;
+}
+
+export interface WeeklyUpdates {
+  outreach: { name: string }[];
+  pitched: { name: string }[];
+  moves: WeeklyUpdateMove[];
+  pitches: WeeklyUpdatePitch[];
+}
+
 export interface DashboardData {
   deals: Deal[];
   dealStageCounts: Record<string, number>;
@@ -142,6 +168,9 @@ export interface DashboardData {
     thisWeek: LeadGenWeekRow[];
     nextWeek: LeadGenNextWeekRow[];
   };
+  // Absent on data committed before the "This Week's Updates" sheet existed —
+  // callers should fall back to empty lists rather than assume presence.
+  weeklyUpdates?: WeeklyUpdates;
   // ISO timestamp of when this dataset was actually committed via /upload —
   // stamped server-side in /api/update-data, not read from any spreadsheet
   // cell. This is what the sidebar's "Data as of" reflects. Absent on data
@@ -152,8 +181,9 @@ export interface DashboardData {
 const EMPTY_STAGE_COUNTS = (): Record<string, number> => ({
   Inquiry: 0,
   Exploration: 0,
+  "POC Proposal": 0,
   "POC/Demo": 0,
-  Proposal: 0,
+  "Final Proposal": 0,
   Negotiations: 0,
   Contracted: 0,
   Lost: 0,
@@ -171,14 +201,23 @@ export function parseWorkbook(input: ArrayBuffer | Uint8Array | Buffer): Dashboa
   };
 
   // ---- Deals ----
+  // Stage values still transitioning from the old "Proposal" label to
+  // "Final Proposal" in the live sheet — normalize so unrenamed rows still
+  // bucket under the current stage instead of falling out of every count.
+  const normStage = (s: any): string => {
+    const v = String(s || "").trim();
+    return v === "Proposal" ? "Final Proposal" : v;
+  };
   const dealRows = sheetRows("Deals").slice(1).filter((r) => r[0]);
   const deals: Deal[] = dealRows.map((r) => ({
     id: r[0],
     name: r[1] || "",
     co: r[2] || "",
-    stage: r[3] || "",
+    stage: normStage(r[3]),
     source: r[4] || "",
-    value: parseFloat(r[5]) || 0,
+    // Amounts can arrive comma-formatted (e.g. "5, 280,000") — parseFloat
+    // alone truncates at the first comma, so strip separators first.
+    value: parseFloat(String(r[5] ?? "").replace(/,/g, "")) || 0,
     close: r[6] ? (r[6] instanceof Date ? r[6].toISOString().slice(0, 10) : String(r[6]).slice(0, 10)) : "",
     won: r[7] === true || String(r[7]).toLowerCase() === "true",
     lost: r[8] === true || String(r[8]).toLowerCase() === "true",
@@ -191,19 +230,23 @@ export function parseWorkbook(input: ArrayBuffer | Uint8Array | Buffer): Dashboa
   const dealTotal = deals.length;
 
   // ---- Deal Stages ----
+  // Column order matches the funnel's stage progression (Inquiry -> Contracted),
+  // with the two new stages (POC Proposal, Final Proposal) inserted in place —
+  // verify against the real workbook once the updated sheet is shared.
   const stageRows = sheetRows("Deal Stages").slice(1).filter((r) => r[0]);
   const stagesByQuarter: Record<string, StageQuarter> = {};
   stageRows.forEach((r) => {
     stagesByQuarter[r[0]] = {
       Inquiry: +r[1] || 0,
       Exploration: +r[2] || 0,
-      "POC/Demo": +r[3] || 0,
-      Proposal: +r[4] || 0,
-      Negotiations: +r[5] || 0,
-      Contracted: +r[6] || 0,
-      Lost: +r[7] || 0,
-      Morphed: +r[8] || 0,
-      total: +r[9] || 0,
+      "POC Proposal": +r[3] || 0,
+      "POC/Demo": +r[4] || 0,
+      "Final Proposal": +r[5] || 0,
+      Negotiations: +r[6] || 0,
+      Contracted: +r[7] || 0,
+      Lost: +r[8] || 0,
+      Morphed: +r[9] || 0,
+      total: +r[10] || 0,
     };
   });
 
@@ -339,7 +382,7 @@ export function parseWorkbook(input: ArrayBuffer | Uint8Array | Buffer): Dashboa
     const rows = sheetRows(posSheetName).slice(1).filter((r) => (r[0] != null && String(r[0]).trim()) || (r[1] != null && String(r[1]).trim()));
     rows.forEach((r) => {
       positiveInquiries.push({
-        account: cellTxt(r[0]), name: cellTxt(r[1]), designation: cellTxt(r[2]), email: cellTxt(r[3]),
+        account: cellTxt(r[0]), name: cellTxt(r[1]), designation: cellTxt(r[2]), source: cellTxt(r[3]),
       });
     });
   }
@@ -368,9 +411,46 @@ export function parseWorkbook(input: ArrayBuffer | Uint8Array | Buffer): Dashboa
     });
   }
 
+  // ---- This Week's Updates ----
+  // Sheet layout (column A holds section labels; blank rows separate sections):
+  //   Reached out to         | A = company
+  //   Pitched to             | A = company
+  //   Stage movement         | A = company, B = from stage, C = to stage
+  //   Upcoming sales pitches | A = company, B = contact name, C = designation, D = date
+  const weeklyUpdates: WeeklyUpdates = { outreach: [], pitched: [], moves: [], pitches: [] };
+  const twSheetName = wb.SheetNames.find((n) => /this\s*week|weekly\s*update|updates/i.test(n));
+  if (twSheetName) {
+    const rows = sheetRows(twSheetName);
+    const txt = (v: any): string => (v === null || v === undefined || String(v).trim() === "" ? "" : String(v).trim());
+    const fmtDate = (v: any): string => {
+      if (v === null || v === undefined || String(v).trim() === "") return "Date TBC";
+      if (v instanceof Date) return v.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+      if (typeof v === "number" && v > 20000 && v < 80000) {
+        const d = new Date(Date.UTC(1899, 11, 30 + v));
+        return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+      }
+      return String(v).trim();
+    };
+    let section: "outreach" | "pitched" | "moves" | "pitches" | null = null;
+    rows.forEach((r) => {
+      const a = txt(r && r[0]);
+      if (!a) return;
+      const key = a.toLowerCase();
+      if (/p[it]{2,3}ch(ed)?\s*to/.test(key)) { section = "pitched"; return; }
+      if (/reach(ed)?\s*out/.test(key)) { section = "outreach"; return; }
+      if (/stage\s*movement/.test(key)) { section = "moves"; return; }
+      if (/upcoming|pitch/.test(key)) { section = "pitches"; return; }
+      if (!section) return;
+      if (section === "outreach") weeklyUpdates.outreach.push({ name: a });
+      else if (section === "pitched") weeklyUpdates.pitched.push({ name: a });
+      else if (section === "moves") weeklyUpdates.moves.push({ name: a, from: txt(r[1]), to: txt(r[2]) });
+      else weeklyUpdates.pitches.push({ co: a, person: txt(r[1]), role: txt(r[2]), date: fmtDate(r[3]) });
+    });
+  }
+
   return {
     deals, dealStageCounts, dealTotal, stagesByQuarter, bmByQuarter,
-    channelsByQuarter, projects, partners, positiveInquiries, leadGenWeekly,
+    channelsByQuarter, projects, partners, positiveInquiries, leadGenWeekly, weeklyUpdates,
   };
 }
 
@@ -416,8 +496,8 @@ export interface BmQuarterDisplay {
 }
 
 const STAGE_COLORS: Record<string, string> = {
-  Inquiry: "#FFC9EA", Exploration: "#F77FCC", "POC/Demo": "#E82AAE",
-  Proposal: "#C71B91", Negotiations: "#9E1474", Contracted: "#26EA9F",
+  Inquiry: "#FFC9EA", Exploration: "#F77FCC", "POC Proposal": "#FA5FC0", "POC/Demo": "#E82AAE",
+  "Final Proposal": "#C71B91", Negotiations: "#9E1474", Contracted: "#26EA9F",
   Lost: "#7A7A88", Morphed: "#3F3F4A",
 };
 

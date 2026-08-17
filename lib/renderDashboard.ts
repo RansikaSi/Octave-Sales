@@ -12,9 +12,6 @@
 import type { Deal, DashboardData, Project, Partner, PositiveInquiry } from "./parseExcel";
 import type { BmQuarterDisplay, BmMetric } from "./parseExcel";
 
-const fmt = (n: number) =>
-  n >= 1e6 ? "LKR " + (n / 1e6).toFixed(2) + "M" : n >= 1e3 ? "LKR " + Math.round(n / 1e3) + "K" : "LKR " + n;
-
 const parseDateVal = (d: string) => (d ? new Date(d).getTime() || 0 : 0);
 
 const fmtClose = (d: string) => {
@@ -27,39 +24,40 @@ const escHtml = (s: any) =>
   String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 const DONUT_COLORS: Record<string, string> = {
-  Inquiry: "#FFC9EA", Exploration: "#F77FCC", "POC/Demo": "#E82AAE",
-  Proposal: "#C71B91", Negotiations: "#9E1474", Contracted: "#26EA9F",
+  Inquiry: "#FFC9EA", Exploration: "#F77FCC", "POC Proposal": "#FA5FC0", "POC/Demo": "#E82AAE",
+  "Final Proposal": "#C71B91", Negotiations: "#9E1474", Contracted: "#26EA9F",
   Lost: "#7A7A88", Morphed: "#3F3F4A",
 };
-const STAGE_ORDER = ["Inquiry", "Exploration", "POC/Demo", "Proposal", "Negotiations", "Contracted", "Lost", "Morphed"];
-const ACTIVE_STAGES = ["Contracted", "Negotiations", "Proposal", "POC/Demo", "Exploration", "Inquiry"];
+const STAGE_ORDER = ["Inquiry", "Exploration", "POC Proposal", "POC/Demo", "Final Proposal", "Negotiations", "Contracted", "Lost", "Morphed"];
+// Descending (closest-to-close first) — drives the funnel/donut slice order.
+const ACTIVE_STAGES = ["Contracted", "Negotiations", "Final Proposal", "POC/Demo", "POC Proposal", "Exploration", "Inquiry"];
+// Ascending (funnel progression) — drives the "Deals by Stage Breakdown" accordion order.
+const BREAKDOWN_STAGE_ORDER = ["Inquiry", "Exploration", "POC Proposal", "POC/Demo", "Final Proposal", "Negotiations", "Contracted"];
 
 // A bar rendered with data-w (and width already 0) grows into place once
 // animateBars() runs post-mount, instead of appearing at full size.
 const animatedBar = (widthPct: number | string) => `width:0%" data-w="${widthPct}%`;
 
-// ============ OVERVIEW (funnel / stage breakdown / KPIs / source chart) ============
+// ============ OVERVIEW (donut / stage breakdown / KPIs / source chart) ============
 export interface OverviewBuild {
   kpis: { active: number; total: number; won: number; closedLost: number; winRate: string };
-  funnelHtml: string;
-  stageValueHtml: string;
+  donutSvgHtml: string;
+  donutLegendHtml: string;
+  donutTotal: number;
   stageBreakdownHtml: string;
   sourceChartHtml: string;
   sourceLegendHtml: string;
 }
 
 export function buildOverview(deals: Deal[]): OverviewBuild {
-  const stageCounts: Record<string, number> = { Inquiry: 0, Exploration: 0, "POC/Demo": 0, Proposal: 0, Negotiations: 0, Contracted: 0, Lost: 0, Morphed: 0 };
-  const stageValues: Record<string, number> = { Inquiry: 0, Exploration: 0, "POC/Demo": 0, Proposal: 0, Negotiations: 0, Contracted: 0, Lost: 0, Morphed: 0 };
+  const stageCounts: Record<string, number> = { Inquiry: 0, Exploration: 0, "POC Proposal": 0, "POC/Demo": 0, "Final Proposal": 0, Negotiations: 0, Contracted: 0, Lost: 0, Morphed: 0 };
   deals.forEach((d) => {
     if (Object.prototype.hasOwnProperty.call(stageCounts, d.stage)) {
       stageCounts[d.stage]++;
-      stageValues[d.stage] += d.value || 0;
     }
   });
 
-  const newStages = ACTIVE_STAGES.map((n) => ({ name: n, count: stageCounts[n], value: stageValues[n] }));
-  const newClosed = { name: "Lost / Morphed", count: stageCounts.Lost + stageCounts.Morphed, value: stageValues.Lost + stageValues.Morphed };
+  const newStages = ACTIVE_STAGES.map((n) => ({ name: n, count: stageCounts[n] }));
   const totalCount = Object.values(stageCounts).reduce((a, b) => a + b, 0);
 
   const won = stageCounts.Contracted;
@@ -67,35 +65,28 @@ export function buildOverview(deals: Deal[]): OverviewBuild {
   const active = deals.length - closedLost;
   const winRate = won + closedLost > 0 ? ((won / (won + closedLost)) * 100).toFixed(1) + "%" : "0%";
 
-  // Funnel
-  const fMax = Math.max(...newStages.map((s) => s.count), newClosed.count, 1);
-  let funnelHtml = newStages
-    .map((s) => {
-      const w = (s.count / fMax) * 100;
-      const pct = ((s.count / totalCount) * 100 || 0).toFixed(1);
-      return `<div class="funnel-row"><div class="funnel-label">${s.name}</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="${animatedBar(w)}">${s.count}</div></div><div class="funnel-pct">${pct}%</div></div>`;
-    })
-    .join("");
-  {
-    const cw = (newClosed.count / fMax) * 100;
-    const cpct = ((newClosed.count / totalCount) * 100 || 0).toFixed(1);
-    funnelHtml += `<div class="funnel-row" style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);"><div class="funnel-label">${newClosed.name}</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="${animatedBar(cw)};background:linear-gradient(90deg,#7A7A88 0%,#5C5C68 100%);box-shadow:none;">${newClosed.count}</div></div><div class="funnel-pct">${cpct}%</div></div>`;
-  }
+  // Donut — active stages (closest-to-close first) plus Lost/Morphed as the two closed-out slices.
+  const donutStages = [...newStages, { name: "Lost", count: stageCounts.Lost }, { name: "Morphed", count: stageCounts.Morphed }];
+  const R = 92, ri = 58;
+  let cumA = -Math.PI / 2;
+  let donutSvgHtml = "";
+  let donutLegendHtml = "";
+  donutStages.forEach((s) => {
+    const a = totalCount > 0 ? (s.count / totalCount) * Math.PI * 2 : 0;
+    const x1 = Math.cos(cumA) * R, y1 = Math.sin(cumA) * R;
+    const x2 = Math.cos(cumA + a) * R, y2 = Math.sin(cumA + a) * R;
+    const xi1 = Math.cos(cumA) * ri, yi1 = Math.sin(cumA) * ri;
+    const xi2 = Math.cos(cumA + a) * ri, yi2 = Math.sin(cumA + a) * ri;
+    const large = a > Math.PI ? 1 : 0;
+    const d = `M ${x1} ${y1} A ${R} ${R} 0 ${large} 1 ${x2} ${y2} L ${xi2} ${yi2} A ${ri} ${ri} 0 ${large} 0 ${xi1} ${yi1} Z`;
+    donutSvgHtml += `<path d="${d}" fill="${DONUT_COLORS[s.name]}" style="stroke:var(--panel)" stroke-width="2"/>`;
+    cumA += a;
+    donutLegendHtml += `<div class="legend-row"><span class="legend-dot" style="background:${DONUT_COLORS[s.name]}"></span><span class="legend-name">${s.name}</span><span class="legend-val">${s.count}</span></div>`;
+  });
 
-  // Stage value bars
-  const vMax = Math.max(...newStages.map((s) => s.value), 1);
-  let stageValueHtml = newStages
-    .map((s) => {
-      const w = s.value === 0 ? 2 : (s.value / vMax) * 100;
-      return `<div class="stage-value-row"><div class="funnel-label">${s.name}</div><div class="sv-bar-wrap"><div class="sv-bar ${s.value === 0 ? "dim" : ""}" style="${animatedBar(w)}"></div></div><div class="sv-num">${fmt(s.value)}</div></div>`;
-    })
-    .join("");
-  stageValueHtml += `<div class="stage-value-row" style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);"><div class="funnel-label">${newClosed.name}</div><div class="sv-bar-wrap"><div class="sv-bar" style="${animatedBar(100)};background:#7A7A88;"></div></div><div class="sv-num">${fmt(newClosed.value)}</div></div>`;
-
-  // Stage breakdown accordion
-  const stageGroupOrder = ["Contracted", "Negotiations", "Proposal", "POC/Demo", "Exploration", "Inquiry"];
+  // Stage breakdown accordion — funnel progression order (Inquiry -> Contracted), Morphed/Lost last.
   const groups = [
-    ...stageGroupOrder.map((n) => ({ label: n, match: (d: Deal) => d.stage === n })),
+    ...BREAKDOWN_STAGE_ORDER.map((n) => ({ label: n, match: (d: Deal) => d.stage === n })),
     { label: "Morphed", match: (d: Deal) => d.stage === "Morphed" },
     { label: "Lost", match: (d: Deal) => d.stage === "Lost" },
   ];
@@ -134,8 +125,9 @@ export function buildOverview(deals: Deal[]): OverviewBuild {
 
   return {
     kpis: { active, total: deals.length, won, closedLost, winRate },
-    funnelHtml,
-    stageValueHtml,
+    donutSvgHtml,
+    donutLegendHtml,
+    donutTotal: totalCount,
     stageBreakdownHtml,
     sourceChartHtml,
     sourceLegendHtml,
@@ -177,9 +169,7 @@ function buildSourceChart(deals: Deal[]): { sourceChartHtml: string; sourceLegen
     })
     .join("");
 
-  const usedStages = new Set<string>();
-  sourceData.forEach((row) => Object.keys(row.stages).forEach((st) => usedStages.add(st)));
-  const sourceLegendHtml = STAGE_ORDER.filter((s) => usedStages.has(s))
+  const sourceLegendHtml = STAGE_ORDER
     .map((stage) => `<div class="legend-row"><span class="legend-dot" style="background:${DONUT_COLORS[stage]}"></span><span class="legend-name">${stage}</span></div>`)
     .join("");
 
@@ -196,8 +186,26 @@ const fmtPct = (raw: number | null | undefined) => {
 };
 const isAbove = (raw: number | null | undefined) => raw !== null && raw !== undefined && raw > 0;
 
-const renderBmCard = (m: BmMetric, vsLabel: string, pillLabel = "QTD", hideTargetHeading = false) => `
-  <div class="bm-card ${isAbove(m.pctRaw) ? "above" : "below"}">
+// Week-on-week trend state: up (green) / down (pink) / flat (grey) — no target involved.
+// Used for card groups that don't carry a real target to compare against (Lead Gen).
+const trendState = (raw: number | null | undefined): "up" | "down" | "flat" => {
+  if (raw === null || raw === undefined) return "flat";
+  if (raw > 0) return "up";
+  if (raw < 0) return "down";
+  return "flat";
+};
+
+const renderBmCard = (
+  m: BmMetric,
+  vsLabel: string,
+  pillLabel = "QTD",
+  hideTargetHeading = false,
+  trendMode = false,
+  hideFoot = false
+) => {
+  const cardClass = trendMode ? `trend-${trendState(m.pctRaw)}` : isAbove(m.pctRaw) ? "above" : "below";
+  return `
+  <div class="bm-card ${cardClass}">
     <div class="bm-card-pill">
       <div class="bm-card-name">${m.name}</div>
       ${hideTargetHeading ? "" : '<div class="bm-card-target-heading">Target</div>'}
@@ -220,11 +228,15 @@ const renderBmCard = (m: BmMetric, vsLabel: string, pillLabel = "QTD", hideTarge
     </div>
     <div class="bm-card-main">${m.current}</div>
     <div class="bm-card-foot">
-      ${m.pctRaw === null || m.pctRaw === undefined ? "<span></span>" : `<span class="bm-card-pct">${fmtPct(m.pctRaw)}</span>`}
-      <span class="bm-card-vs">${vsLabel}</span>
+      ${
+        hideFoot || m.pctRaw === null || m.pctRaw === undefined
+          ? "<span></span>"
+          : `<span class="bm-card-pct">${fmtPct(m.pctRaw)}</span><span class="bm-card-vs">${vsLabel}</span>`
+      }
     </div>
   </div>
 `;
+};
 
 export interface BmBuild {
   lastUpdated: string;
@@ -242,8 +254,8 @@ export function buildBusinessMetrics(bmDataByQuarter: Record<string, BmQuarterDi
   const data = bmDataByQuarter[activeQuarter];
   if (!data) return null;
 
-  const businessCardsHtml = data.business.map((m) => renderBmCard(m, "vs last week", "QTD")).join("");
-  const leadCardsHtml = data.leadGen.map((m) => renderBmCard(m, data.vsLabel, "Target QTD", true)).join("");
+  const businessCardsHtml = data.business.map((m) => renderBmCard(m, "vs last week", "QTD", false, false, true)).join("");
+  const leadCardsHtml = data.leadGen.map((m) => renderBmCard(m, "vs last week", "Target QTD", true, true, true)).join("");
   const ytdCardsHtml = data.ytd.map((m) => renderBmCard(m, data.vsLabel)).join("");
 
   const stageCardsHtml = (data.stages || [])
@@ -594,8 +606,19 @@ export function buildPartners(allPartners: Partner[]): PartnersBuild {
   };
 }
 
-// ============ LEAD GEN WEEKLY + POSITIVE INQUIRIES ============
-export function buildLeadGenWeekly(leadGenWeekly: DashboardData["leadGenWeekly"]): { last3Html: string; thisWeekHtml: string; nextWeekHtml: string } {
+// ============ WEEKLY LEAD MOVEMENT (unified timeline + next-week target band) ============
+export interface LeadGenWeeklyBuild {
+  last3Html: string;
+  thisWeekHtml: string;
+  nextWeekHtml: string;
+  targetWeek: string;
+  targetNum: number;
+  targetGapText: string;
+}
+
+export function buildLeadGenWeekly(leadGenWeekly: DashboardData["leadGenWeekly"]): LeadGenWeeklyBuild {
+  // Column 5 reads "Morphed" in the new layout but is still the same "lost"
+  // field from the sheet — a terminology relabel, not a new data field.
   const std = (arr: DashboardData["leadGenWeekly"]["last3"]) =>
     arr
       .map(
@@ -603,12 +626,70 @@ export function buildLeadGenWeekly(leadGenWeekly: DashboardData["leadGenWeekly"]
           `<tr><td>${escHtml(w.week)}</td><td>${escHtml(w.current) || "0"}</td><td>${escHtml(w.newLeads) || "0"}</td><td>${escHtml(w.active) || "0"}</td><td>${escHtml(w.lost) || "0"}</td><td class="lg-notes">${escHtml(w.notes)}</td></tr>`
       )
       .join("");
+
+  const nw = leadGenWeekly.nextWeek[0];
+  const targetWeek = nw ? nw.week : "";
+  const targetNum = nw ? Number(nw.target) || 0 : 0;
+  const lastThisWeek = leadGenWeekly.thisWeek[leadGenWeekly.thisWeek.length - 1];
+  const curN = lastThisWeek ? Number(lastThisWeek.current) || 0 : 0;
+  const gapDiff = targetNum - curN;
+  const targetGapText = gapDiff > 0 ? `${gapDiff} more than this week` : gapDiff < 0 ? `${Math.abs(gapDiff)} fewer than this week` : "Same as this week";
+
   return {
     last3Html: std(leadGenWeekly.last3),
     thisWeekHtml: std(leadGenWeekly.thisWeek),
     nextWeekHtml: leadGenWeekly.nextWeek
       .map((w) => `<tr><td>${escHtml(w.week)}</td><td>${escHtml(w.target) || "0"}</td><td class="lg-notes">${escHtml(w.notes)}</td></tr>`)
       .join(""),
+    targetWeek,
+    targetNum,
+    targetGapText,
+  };
+}
+
+// ============ THIS WEEK'S UPDATES ============
+export interface WeeklyUpdatesBuild {
+  outreachHtml: string;
+  outreachCount: number;
+  pitchedHtml: string;
+  pitchedCount: number;
+  movesHtml: string;
+  movesCount: number;
+  pitchesHtml: string;
+  pitchesCount: number;
+}
+
+const initials = (s: string) =>
+  s.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+
+export function buildWeeklyUpdates(wu: DashboardData["weeklyUpdates"]): WeeklyUpdatesBuild {
+  const outreach = wu?.outreach ?? [];
+  const pitched = wu?.pitched ?? [];
+  const moves = wu?.moves ?? [];
+  const pitches = wu?.pitches ?? [];
+
+  const nameItem = (name: string) =>
+    `<div class="tw-item"><span class="tw-avatar">${escHtml(initials(name))}</span><span class="tw-item-name">${escHtml(name)}</span></div>`;
+
+  return {
+    outreachHtml: outreach.map((o) => nameItem(o.name)).join(""),
+    outreachCount: outreach.length,
+    pitchedHtml: pitched.map((o) => nameItem(o.name)).join(""),
+    pitchedCount: pitched.length,
+    movesHtml: moves
+      .map(
+        (m) =>
+          `<div class="tw-move"><span class="tw-move-name">${escHtml(m.name)}</span><span class="tw-move-path"><span class="tw-move-from">${escHtml(m.from || "—")}</span><span class="tw-move-arrow">→</span><span class="tw-move-to">${escHtml(m.to || "—")}</span></span></div>`
+      )
+      .join(""),
+    movesCount: moves.length,
+    pitchesHtml: pitches
+      .map((p) => {
+        const line = [p.person, p.role].filter(Boolean).join(" · ");
+        return `<div class="tw-pitch"><div class="tw-pitch-main"><span class="tw-pitch-co">${escHtml(p.co)}</span><span class="tw-pitch-person${line ? "" : " tw-muted"}">${line ? escHtml(line) : "Contact to be confirmed"}</span></div><span class="tw-pitch-date">${escHtml(p.date)}</span></div>`;
+      })
+      .join(""),
+    pitchesCount: pitches.length,
   };
 }
 
@@ -620,7 +701,7 @@ export function buildPositiveInquiries(list: PositiveInquiry[]): string {
       <td class="pi-acct">${r.account ? escHtml(r.account) : '<span class="pi-empty">—</span>'}</td>
       <td>${r.name ? escHtml(r.name) : '<span class="pi-empty">—</span>'}</td>
       <td${r.designation ? "" : ' class="pi-empty"'}>${r.designation ? escHtml(r.designation) : "—"}</td>
-      <td${r.email ? "" : ' class="pi-empty"'}>${r.email ? `<a href="mailto:${escHtml(r.email)}" style="color:var(--text);text-decoration:underline;text-underline-offset:2px;">${escHtml(r.email)}</a>` : "—"}</td>
+      <td${r.source ? "" : ' class="pi-empty"'}>${r.source ? escHtml(r.source) : "—"}</td>
     </tr>`
     )
     .join("");
