@@ -367,7 +367,7 @@
       "id": 37275602971,
       "name": "TAX RFP",
       "co": "JKH PLC - compliance",
-      "stage": "Proposal",
+      "stage": "Final Proposal",
       "source": "Direct",
       "value": 0,
       "close": "2026-06-15",
@@ -545,7 +545,7 @@
     "Exploration": 3,
     "POC Proposal": 1,
     "POC/Demo": 6,
-    "Final Proposal": 0,
+    "Final Proposal": 1,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
@@ -1215,85 +1215,85 @@
       "account": "Akbar Brothers",
       "name": "Huzefa Akbarally",
       "designation": "Executive Director",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "DIMO",
       "name": "Rajeev Pandithage",
       "designation": "Executive Director",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "David Peries",
       "name": "Jayaraj Sayanthan",
       "designation": "Group CIO",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "AIA Insurance",
       "name": "Dilshan Rabbie",
       "designation": "Senior Manager - Digital and Brand engagement",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "Sunshine Holdings",
       "name": "Nadina Fernando",
       "designation": "General Manager - Marketing",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "ALFT Packaging",
       "name": "Jayamal Siriwardana",
       "designation": "Director Marketing",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "Fairfirst Insurance",
       "name": "Clement Fernandopulle",
       "designation": "Group CIO",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "AIA Malaysia",
       "name": "Umeshi de Fonseka",
       "designation": "Director Transformation Office & Planning",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "Rockland",
       "name": "Yachintha Piyadasaa",
       "designation": "CIO",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "Lion Brewery",
       "name": "Ruvendra Gunasena",
       "designation": "Chief Information Officer",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "BPPL",
       "name": "Mihira Dadallage",
       "designation": "Manager - ERP Systems",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "HNB",
       "name": "Chandima Cooray",
       "designation": "Chief Innovation Officer",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "Seylan Bank",
       "name": "Asiri Abhayaratne",
       "designation": "Assistant General Manager - Marketing & Sales",
-      "email": "Direct"
+      "source": "Direct"
     },
     {
       "account": "Spa Ceylon",
       "name": "Shewantha Dias",
       "designation": "Managing Director Co-Founder",
-      "email": "Direct"
+      "source": "Direct"
     }
   ],
   "leadGenWeekly": {
@@ -1418,5 +1418,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-17T04:13:27.209Z"
+  "updatedAt": "2026-08-17T05:41:57.036Z"
 }
