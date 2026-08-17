@@ -312,7 +312,7 @@
       "id": 39450802972,
       "name": "Personalized Recommendation Engine",
       "co": "NagaWorld",
-      "stage": "Inquiry",
+      "stage": "Morphed",
       "source": "Partner",
       "value": 0,
       "close": "2026-06-15",
@@ -541,44 +541,48 @@
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 17,
+    "Inquiry": 16,
     "Exploration": 3,
+    "POC Proposal": 1,
     "POC/Demo": 6,
-    "Proposal": 1,
+    "Final Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
-    "Morphed": 15
+    "Morphed": 16
   },
   "dealTotal": 49,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
       "Exploration": 0,
+      "POC Proposal": 1,
       "POC/Demo": 8,
-      "Proposal": 0,
+      "Final Proposal": 0,
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
       "Morphed": 16,
-      "total": 35
+      "total": 36
     },
     "Q2-2026": {
-      "Inquiry": 13,
-      "Exploration": 0,
-      "POC/Demo": 10,
-      "Proposal": 0,
+      "Inquiry": 16,
+      "Exploration": 3,
+      "POC Proposal": 1,
+      "POC/Demo": 6,
+      "Final Proposal": 0,
       "Negotiations": 0,
       "Contracted": 5,
       "Lost": 1,
-      "Morphed": 17,
-      "total": 46
+      "Morphed": 16,
+      "total": 48
     },
     "Q3-2026": {
       "Inquiry": 0,
       "Exploration": 0,
+      "POC Proposal": 0,
       "POC/Demo": 0,
-      "Proposal": 0,
+      "Final Proposal": 0,
       "Negotiations": 0,
       "Contracted": 0,
       "Lost": 0,
@@ -588,8 +592,9 @@
     "Q4-2026": {
       "Inquiry": 0,
       "Exploration": 0,
+      "POC Proposal": 0,
       "POC/Demo": 0,
-      "Proposal": 0,
+      "Final Proposal": 0,
       "Negotiations": 0,
       "Contracted": 0,
       "Lost": 0,
@@ -780,7 +785,7 @@
         "name": "Events/Conf.",
         "accounts": 2,
         "contacted": 2,
-        "replies": 0,
+        "replies": 2,
         "positive": 2
       },
       {
@@ -1249,12 +1254,6 @@
       "email": "Direct"
     },
     {
-      "account": "Ceylinco Life",
-      "name": "Samitha Hemachandra",
-      "designation": "GM - Marketing",
-      "email": "Direct"
-    },
-    {
       "account": "AIA Malaysia",
       "name": "Umeshi de Fonseka",
       "designation": "Director Transformation Office & Planning",
@@ -1342,5 +1341,82 @@
       }
     ]
   },
-  "updatedAt": "2026-08-12T03:10:22.929Z"
+  "weeklyUpdates": {
+    "outreach": [
+      {
+        "name": "BPPL"
+      },
+      {
+        "name": "Seylan Bank PLC"
+      },
+      {
+        "name": "Spa Ceylon"
+      },
+      {
+        "name": "Commercial Bank"
+      },
+      {
+        "name": "DFCC Bank"
+      },
+      {
+        "name": "HNB"
+      },
+      {
+        "name": "DIMO"
+      },
+      {
+        "name": "David Peiris"
+      },
+      {
+        "name": "AIA Sri Lanka"
+      }
+    ],
+    "pitched": [
+      {
+        "name": "Akbar Brtohers"
+      },
+      {
+        "name": "AGI"
+      }
+    ],
+    "moves": [
+      {
+        "name": "CDB",
+        "from": "Exploration",
+        "to": "POC Proposal"
+      },
+      {
+        "name": "JKH TAX AI Agent",
+        "from": "POC Proposal",
+        "to": "POC/Demo"
+      }
+    ],
+    "pitches": [
+      {
+        "co": "Akbar brothers",
+        "person": "Huzefa Akbarally",
+        "role": "Executive Director",
+        "date": "TBC"
+      },
+      {
+        "co": "AIA Malaysia",
+        "person": "Umeshi de Fonseka",
+        "role": "Director Transformation Office & Planning",
+        "date": "13 Aug"
+      },
+      {
+        "co": "AGI",
+        "person": "Buddhike Perera",
+        "role": "",
+        "date": "16 Aug"
+      },
+      {
+        "co": "INSEE",
+        "person": "Thusith Gunawarnasuriya",
+        "role": "CEO",
+        "date": "17 Aug"
+      }
+    ]
+  },
+  "updatedAt": "2026-08-17T04:13:27.209Z"
 }
