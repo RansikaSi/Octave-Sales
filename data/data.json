@@ -902,21 +902,8 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Daily stand ups with Apollo Team and Week 0 activities commenced on 11-Aug and official project kick-off scheduled for 1st week Sep",
+      "next": "Completed introduction to Data and Digital team on 18th Aug",
       "status": "Ongoing"
-    },
-    {
-      "client": "Hirdaramani",
-      "project": "Absenteeism Prediction",
-      "type": "POC",
-      "value": "LKR 5,000,000",
-      "milestone": "POC kickoff",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": 40,
-      "actual": "TBC",
-      "next": "Scoping questions shared with Hidramani team - awaiting response. \r\nAwaiting confirmation on proposed date for Vavuniya Visit ",
-      "status": "TBC"
     },
     {
       "client": "INSEE Cement",
@@ -930,19 +917,6 @@
       "actual": "TBC",
       "next": "Confirmed appointment with CEO - 18th  August ",
       "status": "To Start"
-    },
-    {
-      "client": "NTB",
-      "project": "Analytics in Internal Audit",
-      "type": "TBC",
-      "value": " - ",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": "TBC",
-      "actual": "TBC",
-      "next": "RFP Response submitted on 25th May currently awaiting NTB's review and feedback.",
-      "status": "TBC"
     },
     {
       "client": "JF&I Packaging",
@@ -969,6 +943,19 @@
       "actual": "TBC",
       "next": "Demo presented. Need to get a reference tax document to build a MVP and conduct a workshop with the tax team to fine tune user journeys for selected roles. ",
       "status": "TBC"
+    },
+    {
+      "client": "CDB",
+      "project": "Sentinal",
+      "type": "TBC",
+      "value": "TBC",
+      "milestone": "TBC",
+      "date": "TBC",
+      "invoice": "TBC",
+      "planned": "TBC",
+      "actual": "TBC",
+      "next": "Finalize POC document and organize a workshop to organize user journeys ",
+      "status": "To Start"
     }
   ],
   "partners": [
@@ -1373,10 +1360,7 @@
     ],
     "pitched": [
       {
-        "name": "Akbar Brtohers"
-      },
-      {
-        "name": "AGI"
+        "name": "INSEE CEO & CFO"
       }
     ],
     "moves": [
@@ -1389,6 +1373,11 @@
         "name": "JKH TAX AI Agent",
         "from": "POC Proposal",
         "to": "POC/Demo"
+      },
+      {
+        "name": "INSEE",
+        "from": "POC Proposal",
+        "to": "POC Demo"
       }
     ],
     "pitches": [
@@ -1402,21 +1391,15 @@
         "co": "AIA Malaysia",
         "person": "Umeshi de Fonseka",
         "role": "Director Transformation Office & Planning",
-        "date": "13 Aug"
+        "date": "18 Aug"
       },
       {
         "co": "AGI",
         "person": "Buddhike Perera",
         "role": "",
-        "date": "16 Aug"
-      },
-      {
-        "co": "INSEE",
-        "person": "Thusith Gunawarnasuriya",
-        "role": "CEO",
-        "date": "17 Aug"
+        "date": "TBC"
       }
     ]
   },
-  "updatedAt": "2026-08-17T06:00:03.092Z"
+  "updatedAt": "2026-08-18T05:56:40.759Z"
 }
