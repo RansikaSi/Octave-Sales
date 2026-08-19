@@ -136,7 +136,7 @@
       "id": 56127352677,
       "name": "Absenteesim Prediction",
       "co": "Hidraramani",
-      "stage": "POC/Demo",
+      "stage": "Morphed",
       "source": "Direct",
       "value": 5,
       "close": "2026-02-14",
@@ -544,12 +544,12 @@
     "Inquiry": 16,
     "Exploration": 3,
     "POC Proposal": 1,
-    "POC/Demo": 6,
+    "POC/Demo": 5,
     "Final Proposal": 1,
     "Negotiations": 0,
     "Contracted": 5,
     "Lost": 1,
-    "Morphed": 16
+    "Morphed": 17
   },
   "dealTotal": 49,
   "stagesByQuarter": {
@@ -915,7 +915,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Confirmed appointment with CEO - 18th  August ",
+      "next": "Confirmation for the POC received from CEO,CFO",
       "status": "To Start"
     },
     {
@@ -1312,7 +1312,7 @@
     ],
     "thisWeek": [
       {
-        "week": "Week 32",
+        "week": "Week 33",
         "current": "15",
         "newLeads": "0",
         "active": "9",
@@ -1322,7 +1322,7 @@
     ],
     "nextWeek": [
       {
-        "week": "Week 32",
+        "week": "Week 34",
         "target": "12",
         "notes": "Target Accounts"
       }
@@ -1401,5 +1401,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-18T05:56:40.759Z"
+  "updatedAt": "2026-08-19T03:08:14.002Z"
 }
