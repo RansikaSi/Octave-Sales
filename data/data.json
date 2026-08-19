@@ -889,7 +889,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "App isssue resolved on 11-Aug\r\nMAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials",
+      "next": "App isssue resolved on 11-Aug\r\nMAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials\r\nMAS informed the delay is due to resourcing issues on their end",
       "status": "Ongoing"
     },
     {
@@ -902,14 +902,14 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Completed introduction to Data and Digital team on 18th Aug",
+      "next": "Completed introduction to Data and Digital team on 18th Aug\r\nData and Platform requirments sessions scheduled for 19th Aug",
       "status": "Ongoing"
     },
     {
       "client": "INSEE Cement",
       "project": "Distributor Profitability",
       "type": "POC",
-      "value": "LKR 5,000,000",
+      "value": "LKR 6,000,000",
       "milestone": "POC kickoff",
       "date": "TBC",
       "invoice": "TBC",
@@ -956,6 +956,19 @@
       "actual": "TBC",
       "next": "Finalize POC document and organize a workshop to organize user journeys ",
       "status": "To Start"
+    },
+    {
+      "client": "NTB",
+      "project": "Internal Audit Function",
+      "type": "TBC",
+      "value": "TBC",
+      "milestone": "TBC",
+      "date": "TBC",
+      "invoice": "TBC",
+      "planned": "TBC",
+      "actual": "TBC",
+      "next": "Received response and requested for demo. This is to be scheduled post 2-Sep ",
+      "status": "TBC"
     }
   ],
   "partners": [
@@ -1401,5 +1414,5 @@
       }
     ]
   },
-  "updatedAt": "2026-08-19T03:08:14.002Z"
+  "updatedAt": "2026-08-19T03:17:24.223Z"
 }
