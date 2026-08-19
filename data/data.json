@@ -366,7 +366,7 @@
     {
       "id": 37275602971,
       "name": "TAX RFP",
-      "co": "JKH PLC - compliance",
+      "co": "JKH PLC - Compliance",
       "stage": "Final Proposal",
       "source": "Direct",
       "value": 0,
@@ -889,7 +889,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "App isssue resolved on 11-Aug\r\nMAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials\r\nMAS informed the delay is due to resourcing issues on their end",
+      "next": "App isssue resolved on 11-Aug. \r\nMAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials.\r\nMAS informed the delay is due to resourcing issues on their end.",
       "status": "Ongoing"
     },
     {
@@ -902,7 +902,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Completed introduction to Data and Digital team on 18th Aug\r\nData and Platform requirments sessions scheduled for 19th Aug",
+      "next": "Completed introduction to Data and Digital team on 18th Aug.\r\nData and Platform requirments sessions scheduled for 19th Aug.",
       "status": "Ongoing"
     },
     {
@@ -1328,8 +1328,8 @@
         "week": "Week 33",
         "current": "15",
         "newLeads": "0",
-        "active": "9",
-        "lost": "1",
+        "active": "2",
+        "lost": "0",
         "notes": ""
       }
     ],
@@ -1344,43 +1344,22 @@
   "weeklyUpdates": {
     "outreach": [
       {
-        "name": "BPPL"
-      },
-      {
-        "name": "Seylan Bank PLC"
-      },
-      {
-        "name": "Spa Ceylon"
-      },
-      {
-        "name": "Commercial Bank"
-      },
-      {
-        "name": "DFCC Bank"
-      },
-      {
-        "name": "HNB"
-      },
-      {
-        "name": "DIMO"
-      },
-      {
-        "name": "David Peiris"
-      },
-      {
-        "name": "AIA Sri Lanka"
+        "name": "AIA Malaysia - Umeshi De Fonseka 19th Aug"
       }
     ],
     "pitched": [
       {
         "name": "INSEE CEO & CFO"
+      },
+      {
+        "name": "Clydes & Co - Nick Roberts COO"
       }
     ],
     "moves": [
       {
         "name": "CDB",
         "from": "Exploration",
-        "to": "POC Proposal"
+        "to": "POC/Demo"
       },
       {
         "name": "JKH TAX AI Agent",
@@ -1401,18 +1380,30 @@
         "date": "TBC"
       },
       {
-        "co": "AIA Malaysia",
-        "person": "Umeshi de Fonseka",
-        "role": "Director Transformation Office & Planning",
-        "date": "18 Aug"
-      },
-      {
         "co": "AGI",
         "person": "Buddhike Perera",
         "role": "",
         "date": "TBC"
+      },
+      {
+        "co": "Spa Ceylon",
+        "person": "Shiwantha Dias",
+        "role": "Managing Director Co-Founder",
+        "date": "23 Aug"
+      },
+      {
+        "co": "VB Enginnering",
+        "person": "-",
+        "role": "-",
+        "date": "25 Aug"
+      },
+      {
+        "co": "Jetwing Hotels",
+        "person": "-",
+        "role": "-",
+        "date": "TBC"
       }
     ]
   },
-  "updatedAt": "2026-08-19T03:17:24.223Z"
+  "updatedAt": "2026-08-19T10:31:43.664Z"
 }
