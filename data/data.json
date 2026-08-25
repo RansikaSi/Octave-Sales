@@ -902,7 +902,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Requested dates for the in person meeting\r\nData and Tech platform meeting \r\nNo PE declaration signed ",
+      "next": "Apollo to revert back on data request by early next Monday \r\nplatform discussion concluded; Chamila to send platform architecture across and BU to confirm by early next week on provisioning.",
       "status": "Ongoing"
     },
     {
@@ -1346,6 +1346,9 @@
     "pitched": [
       {
         "name": "Spa Ceylon - Shiwantha Dias"
+      },
+      {
+        "name": "Akbar brothers - Huzefa Akbarally"
       }
     ],
     "moves": [
@@ -1372,22 +1375,10 @@
     ],
     "pitches": [
       {
-        "co": "Akbar brothers",
-        "person": "Huzefa Akbarally",
-        "role": "Executive Director",
-        "date": "TBC"
-      },
-      {
         "co": "AGI",
         "person": "Buddhike Perera",
         "role": "",
         "date": "24 Aug"
-      },
-      {
-        "co": "Spa Ceylon",
-        "person": "Shiwantha Dias",
-        "role": "Managing Director Co-Founder",
-        "date": "23 Aug"
       },
       {
         "co": "GSK",
@@ -1403,17 +1394,17 @@
       },
       {
         "co": "Dimo",
-        "person": "",
-        "role": "",
-        "date": "1st week of Sep"
+        "person": "Rajeev Pandithage",
+        "role": "Executive Director",
+        "date": "6 Sept"
       },
       {
         "co": "JAT Holdings",
-        "person": "",
-        "role": "",
+        "person": "Anika Williamson",
+        "role": "Executive Director",
         "date": "30 Aug"
       }
     ]
   },
-  "updatedAt": "2026-08-25T09:57:53.473Z"
+  "updatedAt": "2026-08-25T12:45:15.071Z"
 }
