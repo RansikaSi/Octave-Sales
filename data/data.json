@@ -889,7 +889,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "App isssue resolved on 11-Aug. \r\nMAS team to share additional images of the Overlock Stitch Type\r\nInitiate discussions on commercials.\r\nMAS informed the delay is due to resourcing issues on their end.",
+      "next": "188 out of 400 images (+40)\r\nAdditional +40 images recived. MAS still pending to confrim a dedicated resource to capture image quality \r\n",
       "status": "Ongoing"
     },
     {
@@ -902,7 +902,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Completed introduction to Data and Digital team on 18th Aug.\r\nData and Platform requirments sessions scheduled for 19th Aug.",
+      "next": "Requested dates for the in person meeting\r\nData and Tech platform meeting \r\nNo PE declaration signed ",
       "status": "Ongoing"
     },
     {
@@ -915,7 +915,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Confirmation for the POC received from CEO,CFO",
+      "next": "Confirmation for the POC received from CEO,CFO\r\nInternal kick-off meeting for INSEE scheduled for 1-Sep to finalise resourcing for POC and confirm official kick off date",
       "status": "To Start"
     },
     {
@@ -941,7 +941,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Demo presented. Need to get a reference tax document to build a MVP and conduct a workshop with the tax team to fine tune user journeys for selected roles. ",
+      "next": "Demo presented and  reference tax document to build a MVP received from Tax Team.\r\n\r\nConduct a workshop with the tax team to fine tune user journeys for selected roles on 9-Sep. ",
       "status": "TBC"
     },
     {
@@ -954,7 +954,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Finalize POC document and organize a workshop to organize user journeys ",
+      "next": "Finalized POC document by 25-Aug and organize a workshop to organize user journeys (ETA TBC)",
       "status": "To Start"
     },
     {
@@ -967,7 +967,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Received response and requested for demo. This is to be scheduled post 2-Sep ",
+      "next": "Received response and requested for demo. This is to be scheduled on 4-Sep ",
       "status": "TBC"
     }
   ],
@@ -1325,7 +1325,7 @@
     ],
     "thisWeek": [
       {
-        "week": "Week 33",
+        "week": "Week 34",
         "current": "15",
         "newLeads": "0",
         "active": "2",
@@ -1335,29 +1335,27 @@
     ],
     "nextWeek": [
       {
-        "week": "Week 34",
+        "week": "Week 35",
         "target": "12",
         "notes": "Target Accounts"
       }
     ]
   },
   "weeklyUpdates": {
-    "outreach": [
-      {
-        "name": "AIA Malaysia -\r\nUmeshi De Fonseka 19th Aug"
-      }
-    ],
+    "outreach": [],
     "pitched": [
       {
-        "name": "INSEE CEO & CFO"
-      },
-      {
-        "name": "Clydes & Co - Nick Roberts COO"
+        "name": "Spa Ceylon - Shiwantha Dias"
       }
     ],
     "moves": [
       {
-        "name": "CDB",
+        "name": "CDB - Next best offer",
+        "from": "Exploration",
+        "to": "POC/Demo"
+      },
+      {
+        "name": "CDB - Sentinal",
         "from": "Exploration",
         "to": "POC/Demo"
       },
@@ -1383,7 +1381,7 @@
         "co": "AGI",
         "person": "Buddhike Perera",
         "role": "",
-        "date": "TBC"
+        "date": "24 Aug"
       },
       {
         "co": "Spa Ceylon",
@@ -1398,12 +1396,24 @@
         "date": "25 Aug"
       },
       {
-        "co": "Jetwing Hotels",
-        "person": "-",
-        "role": "-",
-        "date": "TBC"
+        "co": "NTB presentation",
+        "person": "",
+        "role": "",
+        "date": "6 Sept"
+      },
+      {
+        "co": "Dimo",
+        "person": "",
+        "role": "",
+        "date": "1st week of Sep"
+      },
+      {
+        "co": "JAT Holdings",
+        "person": "",
+        "role": "",
+        "date": "30 Aug"
       }
     ]
   },
-  "updatedAt": "2026-08-19T10:55:28.212Z"
+  "updatedAt": "2026-08-25T09:57:53.473Z"
 }
