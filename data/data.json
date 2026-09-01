@@ -889,7 +889,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "188 out of 400 images (+40)\r\nAdditional +40 images recived. MAS still pending to confrim a dedicated resource to capture image quality \r\n",
+      "next": "188 out of 400 images (+0 week-on-week)\r\nMAS still pending to confrim a dedicated resource to capture image quality ",
       "status": "Ongoing"
     },
     {
@@ -902,7 +902,7 @@
       "invoice": "TBC",
       "planned": 60,
       "actual": "TBC",
-      "next": "Apollo to revert back on data request by early next Monday \r\nplatform discussion concluded; Chamila to send platform architecture across and BU to confirm by early next week on provisioning.",
+      "next": "POC commenced. Final Enagement letter with changes sent to Apollo for confirmation. ",
       "status": "Ongoing"
     },
     {
@@ -915,7 +915,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Confirmation for the POC received from CEO,CFO\r\nInternal kick-off meeting for INSEE scheduled for 1-Sep to finalise resourcing for POC and confirm official kick off date",
+      "next": "Internal kick-off meeting for INSEE completed and resourcing confirmed. Workshop to be conducted to assess data availability with CIO (TBC) ",
       "status": "To Start"
     },
     {
@@ -1299,14 +1299,6 @@
   "leadGenWeekly": {
     "last3": [
       {
-        "week": "Week 29",
-        "current": "9",
-        "newLeads": "3",
-        "active": "0",
-        "lost": "0",
-        "notes": "Current Leads - \r\nNew Leads -\r\nDilmah, Rockland, Spa Ceylon"
-      },
-      {
         "week": "Week 30",
         "current": "10",
         "newLeads": "1",
@@ -1321,11 +1313,19 @@
         "active": "5",
         "lost": "0",
         "notes": "Commercial Bank, DFCC, HNB, BPPL, AIA Malaysia"
+      },
+      {
+        "week": "Week 35",
+        "current": "15",
+        "newLeads": "0",
+        "active": "2",
+        "lost": "0",
+        "notes": ""
       }
     ],
     "thisWeek": [
       {
-        "week": "Week 34",
+        "week": "Week 36",
         "current": "15",
         "newLeads": "0",
         "active": "2",
@@ -1335,7 +1335,7 @@
     ],
     "nextWeek": [
       {
-        "week": "Week 35",
+        "week": "Week 37",
         "target": "12",
         "notes": "Target Accounts"
       }
@@ -1348,7 +1348,10 @@
         "name": "Spa Ceylon - Shiwantha Dias"
       },
       {
-        "name": "Akbar brothers - Huzefa Akbarally"
+        "name": "Nestle - Sarthak Rawat"
+      },
+      {
+        "name": "JAT Holdings - Anika Williamson"
       }
     ],
     "moves": [
@@ -1375,36 +1378,18 @@
     ],
     "pitches": [
       {
-        "co": "AGI",
-        "person": "Buddhike Perera",
-        "role": "",
-        "date": "25 Aug"
-      },
-      {
-        "co": "GSK",
-        "person": "-",
-        "role": "-",
-        "date": "26 Aug"
-      },
-      {
         "co": "NTB presentation",
         "person": "",
         "role": "",
-        "date": "7 Sept"
+        "date": "4 Sept"
       },
       {
         "co": "Dimo",
         "person": "Rajeev Pandithage",
         "role": "Executive Director",
-        "date": "7 Sept"
-      },
-      {
-        "co": "JAT Holdings",
-        "person": "Anika Williamson",
-        "role": "Executive Director",
-        "date": "31 Aug"
+        "date": "TBC"
       }
     ]
   },
-  "updatedAt": "2026-08-25T12:49:38.927Z"
+  "updatedAt": "2026-09-01T17:26:10.796Z"
 }
