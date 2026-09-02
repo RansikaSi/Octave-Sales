@@ -1299,7 +1299,7 @@
   "leadGenWeekly": {
     "last3": [
       {
-        "week": "Week 30",
+        "week": "Week 33",
         "current": "10",
         "newLeads": "1",
         "active": "1",
@@ -1307,7 +1307,7 @@
         "notes": "Seylan Bank"
       },
       {
-        "week": "Week 31",
+        "week": "Week 34",
         "current": "15",
         "newLeads": "5",
         "active": "5",
@@ -1342,7 +1342,14 @@
     ]
   },
   "weeklyUpdates": {
-    "outreach": [],
+    "outreach": [
+      {
+        "name": "Followed up with Barista - Roshan Arangalla"
+      },
+      {
+        "name": "Followed up with Spa Ceylon - Shiwantha Dias"
+      }
+    ],
     "pitched": [
       {
         "name": "Spa Ceylon - Shiwantha Dias"
@@ -1391,5 +1398,5 @@
       }
     ]
   },
-  "updatedAt": "2026-09-02T08:03:59.553Z"
+  "updatedAt": "2026-09-02T10:09:27.547Z"
 }
