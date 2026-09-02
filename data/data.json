@@ -1373,7 +1373,7 @@
       {
         "name": "INSEE",
         "from": "POC Proposal",
-        "to": "POC Demo"
+        "to": "POC/Demo"
       }
     ],
     "pitches": [
@@ -1391,5 +1391,5 @@
       }
     ]
   },
-  "updatedAt": "2026-09-02T08:01:19.535Z"
+  "updatedAt": "2026-09-02T08:03:59.553Z"
 }
