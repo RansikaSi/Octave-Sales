@@ -889,7 +889,7 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "188 out of 400 images (+0 week-on-week)\r\nMAS still pending to confrim a dedicated resource to capture image quality ",
+      "next": "196 out of 400 images (+8 week-on-week)\r\nMAS still pending to confrim a dedicated resource to dedicate image quality ",
       "status": "Ongoing"
     },
     {
@@ -915,21 +915,8 @@
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Internal kick-off meeting for INSEE completed and resourcing confirmed. Workshop to be conducted to assess data availability with CIO (TBC) ",
+      "next": "Project Plan Finalised. Data requirements shared with INSEE to access data availability ahead of kick-off workshop with INSEE. Workshop to be conducted to assess data availability with CIO (TBC) ",
       "status": "To Start"
-    },
-    {
-      "client": "JF&I Packaging",
-      "project": "Analytical Twin",
-      "type": "POC",
-      "value": "LKR 5,000,000",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": 40,
-      "actual": "TBC",
-      "next": "POC scoping to begin and disussion with the leadership on next steps",
-      "status": "TBC"
     },
     {
       "client": "JKH",
@@ -941,7 +928,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Demo presented and  reference tax document to build a MVP received from Tax Team.\r\n\r\nConduct a workshop with the tax team to fine tune user journeys for selected roles on 9-Sep. ",
+      "next": "Conduct a workshop with the tax team to fine tune scope for selected roles on 9-Sep. ",
       "status": "TBC"
     },
     {
@@ -954,7 +941,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Finalized POC document by 25-Aug and organize a workshop to organize user journeys (ETA TBC)",
+      "next": "Finalized POC document and commercials (ETA TBC)",
       "status": "To Start"
     },
     {
@@ -967,7 +954,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Received response and requested for demo. This is to be scheduled on 4-Sep ",
+      "next": "Schedule follow-up connect with NTB Technical teams to review the architecture in detail ",
       "status": "TBC"
     }
   ],
@@ -1344,7 +1331,7 @@
   "weeklyUpdates": {
     "outreach": [
       {
-        "name": "Followed up with Barista - Roshan Arangalla"
+        "name": "Followed up with JAT Holdings - Anika Williamson"
       },
       {
         "name": "Followed up with Spa Ceylon - Shiwantha Dias"
@@ -1352,13 +1339,7 @@
     ],
     "pitched": [
       {
-        "name": "Spa Ceylon - Shiwantha Dias"
-      },
-      {
-        "name": "Nestle - Sarthak Rawat"
-      },
-      {
-        "name": "JAT Holdings - Anika Williamson"
+        "name": "NTB presentation"
       }
     ],
     "moves": [
@@ -1385,18 +1366,18 @@
     ],
     "pitches": [
       {
-        "co": "NTB presentation",
-        "person": "",
-        "role": "",
-        "date": "4 Sept"
-      },
-      {
         "co": "Dimo",
         "person": "Rajeev Pandithage",
         "role": "Executive Director",
         "date": "TBC"
+      },
+      {
+        "co": "Legal Pulse",
+        "person": "",
+        "role": "",
+        "date": "TBC"
       }
     ]
   },
-  "updatedAt": "2026-09-02T10:09:27.547Z"
+  "updatedAt": "2026-09-08T10:52:58.738Z"
 }
