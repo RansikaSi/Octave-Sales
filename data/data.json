@@ -916,13 +916,13 @@
       "planned": 40,
       "actual": "TBC",
       "next": "Project Plan Finalised. Data requirements shared with INSEE to access data availability ahead of kick-off workshop with INSEE. Workshop to be conducted to assess data availability with CIO (TBC) ",
-      "status": "To Start"
+      "status": "Ongoing"
     },
     {
       "client": "JKH",
       "project": "Tax AI Agent",
       "type": "TBC",
-      "value": "LKR 38,000,000",
+      "value": "LKR 10,000,000",
       "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
@@ -942,7 +942,7 @@
       "planned": "TBC",
       "actual": "TBC",
       "next": "Finalized POC document and commercials (ETA TBC)",
-      "status": "To Start"
+      "status": "TBC"
     },
     {
       "client": "NTB",
@@ -955,6 +955,19 @@
       "planned": "TBC",
       "actual": "TBC",
       "next": "Schedule follow-up connect with NTB Technical teams to review the architecture in detail ",
+      "status": "TBC"
+    },
+    {
+      "client": "JKH",
+      "project": "Compliance RFP",
+      "type": "TBC",
+      "value": "LKR 10,000,000",
+      "milestone": "TBC",
+      "date": "TBC",
+      "invoice": "TBC",
+      "planned": "TBC",
+      "actual": "TBC",
+      "next": "Demo to be scheduled for next week",
       "status": "TBC"
     }
   ],
@@ -1379,5 +1392,5 @@
       }
     ]
   },
-  "updatedAt": "2026-09-08T10:52:58.738Z"
+  "updatedAt": "2026-09-09T03:06:16.870Z"
 }
