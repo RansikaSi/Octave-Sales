@@ -538,10 +538,142 @@
       "close": "2026-08-04",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Havelock city mall",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Cool Planet ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "DSI ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Sunshine Holdings ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Janashakthi ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Vision Care ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Singer ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Hameedia ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Barista ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Perera & Sons ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Ceylon biscuits Limited ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Celeste",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-09",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 16,
+    "Inquiry": 28,
     "Exploration": 3,
     "POC Proposal": 1,
     "POC/Demo": 6,
@@ -551,7 +683,7 @@
     "Lost": 1,
     "Morphed": 17
   },
-  "dealTotal": 49,
+  "dealTotal": 61,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -1326,11 +1458,11 @@
     "thisWeek": [
       {
         "week": "Week 36",
-        "current": "15",
-        "newLeads": "0",
-        "active": "2",
+        "current": "20",
+        "newLeads": "12",
+        "active": "0",
         "lost": "0",
-        "notes": ""
+        "notes": "Havelock, Cool Planet ,DSI ,Celest Daily ,Vision Care, Sunshine holdings, Janashakthi, Singer, Hameedia, Barista, Perera & Sons, CBL"
       }
     ],
     "nextWeek": [
@@ -1352,7 +1484,7 @@
     ],
     "pitched": [
       {
-        "name": "NTB presentation"
+        "name": "NTB - presentation"
       }
     ],
     "moves": [
@@ -1387,13 +1519,25 @@
         "co": "Dimo",
         "person": "Rajeev Pandithage",
         "role": "Executive Director",
+        "date": "Next week"
+      },
+      {
+        "co": "Celeste",
+        "person": "Janik Jayasuriya",
+        "role": "Managing Director/Founder",
         "date": "TBC"
       },
       {
-        "co": "Legal Pulse",
+        "co": "NTB Technical team",
+        "person": "Kalana Kumarasinghe",
+        "role": "CIO",
+        "date": "13 Sept"
+      },
+      {
+        "co": "JKH - Compliance RFP Demo",
         "person": "",
         "role": "",
-        "date": "TBC"
+        "date": "14 Sept"
       },
       {
         "co": "Havelock city mall",
@@ -1408,18 +1552,60 @@
         "date": "Date TBC"
       },
       {
-        "co": "Celeste Daily",
-        "person": "Janik Jayasuriya",
-        "role": "Managing Director/Founder",
-        "date": "TBC"
+        "co": "DSI",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
       },
       {
-        "co": "NTB Technical team",
-        "person": "Kalana Kumarasinghe",
-        "role": "CIO",
-        "date": "13 Sept"
+        "co": "Sunshine Holdings",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Janashakthi",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Vision Care",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Singer",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Hameedia",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Barista",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Perera & Sons",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
+      },
+      {
+        "co": "Ceylon biscuits",
+        "person": "",
+        "role": "",
+        "date": "Date TBC"
       }
     ]
   },
-  "updatedAt": "2026-09-11T03:04:18.266Z"
+  "updatedAt": "2026-09-11T03:27:40.269Z"
 }
