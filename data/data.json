@@ -586,7 +586,7 @@
     {
       "id": 78957802976,
       "name": "TBC",
-      "co": "Janashakthi ",
+      "co": "Janashakthi Insurance ",
       "stage": "Inquiry",
       "source": "Direct ",
       "value": 0,
@@ -652,7 +652,7 @@
     {
       "id": 78957802976,
       "name": "TBC",
-      "co": "Ceylon biscuits Limited ",
+      "co": "Ceylon Biscuits Limited ",
       "stage": "Inquiry",
       "source": "Direct ",
       "value": 0,
@@ -1016,12 +1016,12 @@
       "project": "Computer Vision & Analytics",
       "type": "POC",
       "value": "LKR 5,000,000",
-      "milestone": "POC to be completed",
-      "date": "Pending",
+      "milestone": "TBC",
+      "date": "TBC",
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "196 out of 400 images (+8 week-on-week)\r\nMAS still pending to confrim a dedicated resource to dedicate image quality ",
+      "next": "225 out of 400 images (+30 week-on-week)\r\nInternal discussion on 15-Sep to align on way forward",
       "status": "Ongoing"
     },
     {
@@ -1042,45 +1042,45 @@
       "project": "Distributor Profitability",
       "type": "POC",
       "value": "LKR 6,000,000",
-      "milestone": "POC kickoff",
+      "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
       "planned": 40,
       "actual": "TBC",
-      "next": "Project Plan Finalised. Data requirements shared with INSEE to access data availability ahead of kick-off workshop with INSEE. Workshop to be conducted to assess data availability with CIO (TBC) ",
+      "next": "Project Plan Finalised. Data requirement feedback received from INSEE on 14-Sep.  Workshop to be conducted to assess data availability with CIO (TBC) ",
       "status": "Ongoing"
     },
     {
       "client": "JKH",
       "project": "Tax AI Agent",
       "type": "TBC",
-      "value": "LKR 10,000,000",
+      "value": "LKR 5,000,000",
       "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Conduct a workshop with the tax team to fine tune scope for selected roles on 9-Sep. ",
+      "next": "Reached out to Microsoft to assess percentage of RFP that can be delivered through Microsoft Co-pilot and what Octave can custom build ",
       "status": "TBC"
     },
     {
       "client": "CDB",
       "project": "Sentinal",
       "type": "TBC",
-      "value": "TBC",
+      "value": "LKR 5,000,000",
       "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Finalized POC document and commercials (ETA TBC)",
+      "next": "Finalized POC document and commercials and shared with CDB ",
       "status": "TBC"
     },
     {
       "client": "NTB",
       "project": "Internal Audit Function",
       "type": "TBC",
-      "value": "TBC",
+      "value": "LKR 65,000,000",
       "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
@@ -1099,7 +1099,7 @@
       "invoice": "TBC",
       "planned": "TBC",
       "actual": "TBC",
-      "next": "Demo to be scheduled for next week",
+      "next": "Completed demo presentation ",
       "status": "TBC"
     }
   ],
@@ -1480,38 +1480,34 @@
       },
       {
         "name": "Followed up with Spa Ceylon - Shiwantha Dias"
+      },
+      {
+        "name": "Apadmi - Ongoing conversation"
       }
     ],
     "pitched": [
       {
         "name": "NTB - presentation"
+      },
+      {
+        "name": "JKH - Compliance Demo"
       }
     ],
     "moves": [
-      {
-        "name": "CDB - Next best offer",
-        "from": "Exploration",
-        "to": "POC/Demo"
-      },
       {
         "name": "CDB - Sentinal",
         "from": "Exploration",
         "to": "POC/Demo"
       },
       {
-        "name": "JKH TAX AI Agent",
-        "from": "POC Proposal",
-        "to": "POC/Demo"
-      },
-      {
-        "name": "INSEE",
-        "from": "POC Proposal",
-        "to": "POC/Demo"
-      },
-      {
         "name": "JKH Compliance Demo",
         "from": "POC Proposal",
         "to": "POC/Demo"
+      },
+      {
+        "name": "Nestle southasia",
+        "from": "Inquiry",
+        "to": "Exploration"
       }
     ],
     "pitches": [
@@ -1535,8 +1531,8 @@
       },
       {
         "co": "JKH - Compliance RFP Demo",
-        "person": "",
-        "role": "",
+        "person": "Thimara",
+        "role": "Business Analyst",
         "date": "14 Sept"
       },
       {
@@ -1607,5 +1603,5 @@
       }
     ]
   },
-  "updatedAt": "2026-09-11T03:30:35.873Z"
+  "updatedAt": "2026-09-15T06:55:15.850Z"
 }
