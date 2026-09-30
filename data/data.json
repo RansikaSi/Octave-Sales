@@ -422,7 +422,7 @@
       "id": 39727802913,
       "name": "Cost Sherlock",
       "co": "GSK India",
-      "stage": "POC/Demo",
+      "stage": "Exploration",
       "source": "Direct",
       "value": 5,
       "close": "2026-07-08",
@@ -674,9 +674,9 @@
   ],
   "dealStageCounts": {
     "Inquiry": 28,
-    "Exploration": 3,
+    "Exploration": 4,
     "POC Proposal": 1,
-    "POC/Demo": 6,
+    "POC/Demo": 5,
     "Final Proposal": 0,
     "Negotiations": 0,
     "Contracted": 5,
@@ -1014,92 +1014,92 @@
     {
       "client": "MAS Holdings",
       "project": "Computer Vision & Analytics",
-      "type": "POC",
+      "type": "On Hold",
       "value": "LKR 5,000,000",
       "milestone": "TBC",
-      "date": "TBC",
+      "date": "Mon Dec 01 2025 23:59:28 GMT+0530 (India Standard Time)",
       "invoice": "TBC",
-      "planned": 40,
+      "planned": "36  weeks",
       "actual": "TBC",
-      "next": "225 out of 400 images (+30 week-on-week)\r\nInternal discussion on 15-Sep to align on way forward",
+      "next": 65,
       "status": "Ongoing"
     },
     {
       "client": "Apollo Tyres",
       "project": "Dealer De-growth",
-      "type": "POC",
+      "type": "On Track",
       "value": "LKR 21,700,000",
-      "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": 60,
+      "milestone": "SOW Sign-Off",
+      "date": "Mon Aug 17 2026 23:59:28 GMT+0530 (India Standard Time)",
+      "invoice": "2026-11-30T18:29:28.000Z",
+      "planned": "4  weeks",
       "actual": "TBC",
-      "next": "POC commenced. Final Enagement letter with changes sent to Apollo for confirmation. ",
+      "next": "TBC",
       "status": "Ongoing"
     },
     {
       "client": "INSEE Cement",
       "project": "Distributor Profitability",
-      "type": "POC",
+      "type": "On Track",
       "value": "LKR 6,000,000",
-      "milestone": "TBC",
+      "milestone": "SOW Sign-Off",
       "date": "TBC",
       "invoice": "TBC",
-      "planned": 40,
+      "planned": "-",
       "actual": "TBC",
-      "next": "Project Plan Finalised. Data requirement feedback received from INSEE on 14-Sep.  Workshop to be conducted to assess data availability with CIO (TBC) ",
+      "next": "TBC",
       "status": "Ongoing"
     },
     {
       "client": "JKH",
       "project": "Tax AI Agent",
-      "type": "TBC",
-      "value": "LKR 5,000,000",
+      "type": "On Hold",
+      "value": "LKR 41,500,000",
       "milestone": "TBC",
-      "date": "TBC",
+      "date": "Sun Sep 28 2025 23:59:28 GMT+0530 (India Standard Time)",
       "invoice": "TBC",
-      "planned": "TBC",
+      "planned": "-",
       "actual": "TBC",
-      "next": "Reached out to Microsoft to assess percentage of RFP that can be delivered through Microsoft Co-pilot and what Octave can custom build ",
+      "next": "TBC",
       "status": "TBC"
     },
     {
       "client": "CDB",
       "project": "Sentinal",
-      "type": "TBC",
-      "value": "LKR 5,000,000",
+      "type": "Not Started",
+      "value": "LKR 4,750,000",
       "milestone": "TBC",
-      "date": "TBC",
-      "invoice": "TBC",
-      "planned": "TBC",
+      "date": "Sun Oct 05 2025 23:59:28 GMT+0530 (India Standard Time)",
+      "invoice": "2025-01-31T18:29:28.000Z",
+      "planned": "-",
       "actual": "TBC",
-      "next": "Finalized POC document and commercials and shared with CDB ",
+      "next": "TBC",
       "status": "TBC"
     },
     {
       "client": "NTB",
       "project": "Internal Audit Function",
-      "type": "TBC",
+      "type": "Not Started",
       "value": "LKR 65,000,000",
       "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
-      "planned": "TBC",
+      "planned": "-",
       "actual": "TBC",
-      "next": "Schedule follow-up connect with NTB Technical teams to review the architecture in detail ",
+      "next": "TBC",
       "status": "TBC"
     },
     {
       "client": "JKH",
       "project": "Compliance RFP",
-      "type": "TBC",
-      "value": "LKR 10,000,000",
+      "type": "Not Started",
+      "value": "LKR 10,900,000",
       "milestone": "TBC",
       "date": "TBC",
       "invoice": "TBC",
-      "planned": "TBC",
+      "planned": "-",
       "actual": "TBC",
-      "next": "Completed demo presentation ",
+      "next": 364,
       "status": "TBC"
     }
   ],
@@ -1431,31 +1431,13 @@
   "leadGenWeekly": {
     "last3": [
       {
-        "week": "Week 33",
-        "current": "10",
-        "newLeads": "1",
-        "active": "1",
-        "lost": "0",
-        "notes": "Seylan Bank"
-      },
-      {
-        "week": "Week 34",
-        "current": "15",
-        "newLeads": "5",
-        "active": "5",
-        "lost": "0",
-        "notes": "Commercial Bank, DFCC, HNB, BPPL, AIA Malaysia"
-      },
-      {
         "week": "Week 35",
         "current": "15",
         "newLeads": "0",
         "active": "2",
         "lost": "0",
         "notes": ""
-      }
-    ],
-    "thisWeek": [
+      },
       {
         "week": "Week 36",
         "current": "20",
@@ -1463,11 +1445,29 @@
         "active": "0",
         "lost": "0",
         "notes": "Havelock, Cool Planet ,DSI ,Celest Daily ,Vision Care, Sunshine holdings, Janashakthi, Singer, Hameedia, Barista, Perera & Sons, CBL"
+      },
+      {
+        "week": "Week 37",
+        "current": "26",
+        "newLeads": "6",
+        "active": "0",
+        "lost": "0",
+        "notes": "Prime Lands,\r\nBrandix, \r\nHayleys Retail,\r\nHNB Life,\r\nSri Lanka Nordic Business Council,\r\nVallibel finance,"
+      }
+    ],
+    "thisWeek": [
+      {
+        "week": "Week 38",
+        "current": "6",
+        "newLeads": "1",
+        "active": "",
+        "lost": "",
+        "notes": "Fairway"
       }
     ],
     "nextWeek": [
       {
-        "week": "Week 37",
+        "week": "Week 39",
         "target": "12",
         "notes": "Target Accounts"
       }
@@ -1476,28 +1476,40 @@
   "weeklyUpdates": {
     "outreach": [
       {
-        "name": "Followed up with JAT Holdings - Anika Williamson"
+        "name": "Prime Lands  - Sandamini Perera"
       },
       {
-        "name": "Followed up with Spa Ceylon - Shiwantha Dias"
+        "name": "Singer - Mahesh Wijewardena"
       },
       {
-        "name": "Apadmi - Ongoing conversation"
+        "name": "JAT - Anika Williamson"
+      },
+      {
+        "name": "DIMO - Rajiv Pandithage"
+      },
+      {
+        "name": "MD United Machineary - Dhammika Vidanange"
+      },
+      {
+        "name": "LOLC CTO - Conrad Dias"
+      },
+      {
+        "name": "Rockland Distilleries - Chathura Ganegoda"
       }
     ],
     "pitched": [
       {
-        "name": "NTB - presentation"
+        "name": "JKH - Compliance Demo"
       },
       {
-        "name": "JKH - Compliance Demo"
+        "name": "INSEE Commercials Director"
       }
     ],
     "moves": [
       {
         "name": "CDB - Sentinal",
         "from": "Exploration",
-        "to": "POC/Demo"
+        "to": "POC Proposal"
       },
       {
         "name": "JKH Compliance Demo",
@@ -1512,96 +1524,18 @@
     ],
     "pitches": [
       {
-        "co": "Dimo",
-        "person": "Rajeev Pandithage",
-        "role": "Executive Director",
-        "date": "Next week"
-      },
-      {
-        "co": "Celeste",
-        "person": "Janik Jayasuriya",
-        "role": "Managing Director/Founder",
-        "date": "TBC"
-      },
-      {
-        "co": "NTB Technical team",
-        "person": "Kalana Kumarasinghe",
-        "role": "CIO",
-        "date": "13 Sept"
-      },
-      {
-        "co": "JKH - Compliance RFP Demo",
-        "person": "Thimara",
-        "role": "Business Analyst",
-        "date": "14 Sept"
-      },
-      {
-        "co": "Havelock city mall",
-        "person": "",
-        "role": "",
+        "co": "Prime Lands",
+        "person": "Sandamini Perera",
+        "role": "Director",
         "date": "Date TBC"
       },
       {
-        "co": "Cool Planet",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "DSI",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Sunshine Holdings",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Janashakthi",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Vision Care",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Singer",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Hameedia",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Barista",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Perera & Sons",
-        "person": "",
-        "role": "",
-        "date": "Date TBC"
-      },
-      {
-        "co": "Ceylon biscuits",
-        "person": "",
-        "role": "",
+        "co": "CDB",
+        "person": "Dave De Silva",
+        "role": "Director",
         "date": "Date TBC"
       }
     ]
   },
-  "updatedAt": "2026-09-15T06:55:15.850Z"
+  "updatedAt": "2026-09-30T07:24:00.355Z"
 }
