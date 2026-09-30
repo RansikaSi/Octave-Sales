@@ -670,10 +670,65 @@
       "close": "2026-09-09",
       "won": false,
       "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Prime Lands ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-23",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "Singer ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-24",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "JAT Holdings ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-25",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "MD United Machineary ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-26",
+      "won": false,
+      "lost": false
+    },
+    {
+      "id": 78957802976,
+      "name": "TBC",
+      "co": "LOLC ",
+      "stage": "Inquiry",
+      "source": "Direct ",
+      "value": 0,
+      "close": "2026-09-27",
+      "won": false,
+      "lost": false
     }
   ],
   "dealStageCounts": {
-    "Inquiry": 28,
+    "Inquiry": 33,
     "Exploration": 4,
     "POC Proposal": 1,
     "POC/Demo": 5,
@@ -683,7 +738,7 @@
     "Lost": 1,
     "Morphed": 17
   },
-  "dealTotal": 61,
+  "dealTotal": 66,
   "stagesByQuarter": {
     "Q1-2026": {
       "Inquiry": 5,
@@ -1537,5 +1592,5 @@
       }
     ]
   },
-  "updatedAt": "2026-09-30T07:24:00.355Z"
+  "updatedAt": "2026-09-30T07:56:04.833Z"
 }
